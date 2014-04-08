@@ -5,25 +5,27 @@
       <%= @dive.date %>
       <br/>
       From <%= @dive.time_in %> to <%= @dive.time_out %>
+      <br/>
+      <%= @dive.total_time_in_minutes %> Minutes
     </h3>
   </div>
   <div class="span6">
     <p>
-      Dive Type: <%= @dive.record(@dive.dive_type) %>
+      Dive Type: <%= @dive.dive_type %>
       <br/>   
-      Dive Activity: <%= @dive.record(@dive.dive_activity) %>
+      Dive Activity: <%= @dive.dive_activity %>
       <br/>        
-      Maximum Depth: <%= @dive.record(@dive.depth) %> m
+      Maximum Depth: <%= @dive.depth %> m
       <br/>
-      Water Temperature: <%= @dive.record(@dive.temperature) %> °C
+      Water Temperature: <%= @dive.temperature %> °C
       <br/>
-      Visibility: <%= @dive.record(@dive.visibility) %> m
+      Visibility: <%= @dive.visibility %> m
       <br/>
-      Conditions: <%= @dive.record(@dive.dive_activity) %>
+      Conditions: <%= @dive.dive_activity %>
       <br/>                         
-      Starting Air: <%= @dive.record(@dive.start_air) %> bar
+      Starting Air: <%= @dive.start_air %> bar
       <br/>
-      Ending Air: <%= @dive.record(@dive.end_air) %> bar
+      Ending Air: <%= @dive.end_air %> bar
       <br/>
       Wetsuit? <%= @dive.wetsuit %>
     </p>
@@ -32,7 +34,7 @@
 <div class="row">
   <div class="span12">
     <p>
-      Notes: <%= @dive.record(@dive.notes) %>
+      Notes: <%= @dive.notes %>
     </p>
   </div>
 </div>
