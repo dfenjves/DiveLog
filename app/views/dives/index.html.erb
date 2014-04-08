@@ -1,1 +1,21 @@
-index.html.erb
+<h2> Dive Log Index </h2>
+<table class = "table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Site</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @dives.each do |dive| %>
+			<tr class='clickableRow' href='<%= dive_path(dive) %>'>
+				<td><%= dive.id %></td>
+				<td><%= dive.dive_site %></td>
+				<td><%= dive.date %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<a href = "<%= new_dive_path %>"> Add a Dive </a>
