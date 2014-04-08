@@ -24,15 +24,21 @@
 		<%= f.time_field :time_out%>
 	</p>
 	<p>
-		<%= f.label :temperature, "Water Temperature:" %>
-		<%= f.number_field :temperature%>
+		<%= f.label :visibility, "visibility:" %>
+		<%= f.number_field :Visibility%>
 	</p>
 
 	<p>
-		<%= radio_button_tag(:visibility, "child") %>
-		<%= label_tag(:age_child, "I am younger than 21") %>
-		<%= radio_button_tag(:age, "adult") %>
-		<%= label_tag(:age_adult, "I'm over 21") %>
+		<%= f.label :start_air, "Start Air:" %>
+		<%= f.number_field :start_air%>
+	</p>
+	<p>
+		<%= f.label :end_air, "End Air:" %>
+		<%= f.number_field :end_air%>
+	</p>
+
+	<p>
+		<%= f.select :dive_type, [["Boat Dive", "boat"],["Beach Dive", "beach"],["Drift Dive", "drift"],["Night Dive", "Night"]] %>
 	</p>
 
 <% end %>
