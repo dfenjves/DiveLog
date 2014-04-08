@@ -5,20 +5,16 @@ class Dive < ActiveRecord::Base
   has_many :divers, through: :diverdive
   has_many :diverdives
 
+  validates_presence_of :time_in, :time_out, :date, :dive_site
   before_save :set_defaults
 
   def set_defaults
-    self.depth = "Not Recorded" unless self.depth != ""
-    self.temperature = "Not Recorded" unless self.temperature != ""
-    self.visibility = "Not Recorded" unless self.visibility != ""
-    self.start_air = "Not Recorded" unless self.start_air != ""
-    self.end_air = "Not Recorded" unless self.end_air != ""
-    self.conditions = "Not Recorded" unless self.conditions != ""
-    self.notes = "Not Recorded" unless self.notes != ""
+    self.conditions = "Not Recorded" if self.conditions == ""
+    self.notes = "No Notes Recorded" if self.notes == ""
   end
 
   def total_time_in_minutes
-    (self.time_out - self.time_in) / 60
+    ((self.time_out - self.time_in) / 60).to_i
   end
 
   def total_air_used
