@@ -14,6 +14,13 @@ class DivesController < ApplicationController
   end
 
   def create
+    @dive = Dive.new(dive_params)
+    if @dive.save
+      redirect_to dive_path(@dive)
+    else
+      render "new", :flash => { :error => "There was a problem with your submissions!" }
+    end
+ 
   end
 
   def edit

@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140408141446) do
     t.time     "time_in"
     t.time     "time_out"
     t.string   "dive_site"
-    t.string   "visibility"
+    t.integer  "visibility"
     t.integer  "start_air"
     t.integer  "end_air"
     t.string   "dive_type"

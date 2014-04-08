@@ -3,7 +3,7 @@
 		<%= f.label :date, "Date:" %>
 		<%= f.date_field :date%>
 	</p>
-		<p>
+	<p>
 		<%= f.label :dive_site, "Dive Site:" %>
 		<%= f.text_field :dive_site%>
 	</p>
@@ -25,7 +25,7 @@
 	</p>
 	<p>
 		<%= f.label :visibility, "visibility:" %>
-		<%= f.number_field :Visibility%>
+		<%= f.number_field :visibility%>
 	</p>
 
 	<p>
@@ -38,7 +38,31 @@
 	</p>
 
 	<p>
+		<%= f.label :dive_type, "Dive Type:" %>
 		<%= f.select :dive_type, [["Boat Dive", "boat"],["Beach Dive", "beach"],["Drift Dive", "drift"],["Night Dive", "Night"]] %>
 	</p>
+
+	<p>
+		<%= f.label :dive_activity, "Dive Activity:" %>
+		<%= f.select :dive_activity, [["Wreck Dive", "wreck"],["Reef Dive", "reef"],["Cave Dive", "cave"],["Training Dive", "training"]] %>
+	</p>
+
+	<p>
+		<%= f.check_box (:wetsuit) %>
+		<%= f.label :wetsuit, "Wetsuit?" %>
+	</p>
+
+	<p>
+		<%= f.label :conditions, "Water Conditions:" %>
+		<%= f.text_field :conditions%>
+	</p>
+
+	<p>
+		<%= f.label :notes, "Additional Notes:" %>
+		<%= f.text_area :notes %>
+	</p>
+
+	<%= f.submit "Sumbit Dive!" %>
+
 
 <% end %>
