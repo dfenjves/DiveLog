@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+    get '/dives' => 'dives#index'
+    post '/dives' => 'dives#create'
+    get '/dives/new' => 'dives#new', as: 'new_dive'
+    get '/dives/:id/edit' => 'dives#edit', as: 'edit_dive'
+    get '/dives/:id' => 'dives#show', as: 'dive'
+    patch '/dives/:id' => 'dives#update'
+    delete '/dives/:id' => 'dives#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
