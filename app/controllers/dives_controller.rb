@@ -1,12 +1,16 @@
 class DivesController < ApplicationController
   
-  before_action :set_dive, only[:show, :edit, :update, :destroy]
+  before_action :set_dive, only: [:show, :edit, :update, :destroy]
 
   def index
     @dives = Dive.all
   end
 
   def show
+  end
+
+  def new
+    @dive = Dive.new
   end
 
   def create
