@@ -1,1 +1,38 @@
-_form.html.erb
+<%= form_for @dive do |f| %>
+	<p>
+		<%= f.label :date, "Date:" %>
+		<%= f.date_field :date%>
+	</p>
+		<p>
+		<%= f.label :dive_site, "Dive Site:" %>
+		<%= f.text_field :dive_site%>
+	</p>
+	<p>
+		<%= f.label :depth, "Maximum Depth:" %>
+		<%= f.number_field :depth%>
+	</p>
+	<p>
+		<%= f.label :temperature, "Water Temperature:" %>
+		<%= f.number_field :temperature%>
+	</p>
+	<p>
+		<%= f.label :time_in, "Time In:" %>
+		<%= f.time_field :time_in%>
+	</p>
+	<p>
+		<%= f.label :time_out, "Time Out:" %>
+		<%= f.time_field :time_out%>
+	</p>
+	<p>
+		<%= f.label :temperature, "Water Temperature:" %>
+		<%= f.number_field :temperature%>
+	</p>
+
+	<p>
+		<%= radio_button_tag(:visibility, "child") %>
+		<%= label_tag(:age_child, "I am younger than 21") %>
+		<%= radio_button_tag(:age, "adult") %>
+		<%= label_tag(:age_adult, "I'm over 21") %>
+	</p>
+
+<% end %>
