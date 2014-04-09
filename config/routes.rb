@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   patch '/dives/:id' => 'dives#update'
   delete '/dives/:id' => 'dives#destroy'
 
+  get '/divers/:id' => 'divers#show', as: 'diver'
+
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]

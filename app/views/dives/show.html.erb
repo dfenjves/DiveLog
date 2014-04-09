@@ -4,6 +4,9 @@
       <h2 class="text-center">A dive at <%= @dive.dive_site %></h2>
       <div class="row">
         <div class="col-md-6">
+          <% @dive.divers.each do |d| %>
+            <%= link_to((image_tag d.image), d) %>
+          <% end %>
           <h3>
             <%= @dive.date.strftime("%B %d, %Y") %>
           </h3>

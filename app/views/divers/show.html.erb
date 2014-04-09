@@ -1,9 +1,39 @@
-<div class="row">
-  <div class="col-md-6">
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <%= image_tag @diver.image %>
+        <br>
+        <h2>
+          <%= @diver.name %>
+        </h2>
+        <h3>
+          <%= @diver.email %>
+          <br>
+          <%= pluralize(@diver.dives.length, 'Dive') %> logged
+        </h3>    
+      </div>
+      <div class="col-md-6">
+        <% if @diver.dives.length != 0 %>
+          <h3>
+            Dive list:
+          </h3>
+          <ul>
+            <% @diver.dives.order(date: :desc).each do |d| %>
+              <li><%= link_to d.dive_site, d %> -- <%= d.date %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <h3>
+            No dives logged.
+          </h3>
+          <h4>
+            <%= link_to "Log a Dive!", new_dive_path %>
+          </h4>
+        <% end %>
+      </div>  
+    </div>
+    <div class="row">
+    </div>
   </div>
-  <div class="col-md-6">
-  </div>  
-</div>
-<div class="row">
-
 </div>
