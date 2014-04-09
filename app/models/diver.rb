@@ -8,10 +8,15 @@ class Diver < ActiveRecord::Base
       diver.uid = auth.uid
       diver.name = auth.info.name
       diver.email = auth.info.email
+      diver.image = auth.info.image
       diver.oauth_token = auth.credentials.token
       diver.oauth_expires_at = Time.at(auth.credentials.expires_at)
       diver.save!
     end
   end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+  end  
 
 end

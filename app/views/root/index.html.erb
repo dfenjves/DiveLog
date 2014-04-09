@@ -1,21 +1,19 @@
-<div class="container">
-  <div class="col-md-4"></div>
-  <div class="col-md-4 intro-text">
-    <h2>
-      welcome to divelog
-    </h2>  
-    <h3> 
-      <% if logged_in? %>     
-        <%= link_to "Log a Dive", new_dive_path, class: 'btn btn-info' %>
-      <% else %>
-        <%= link_to "Sign in with Facebook", new_dive_path, class: 'btn btn-info' %>
-      <% end %>
-    </h3>     
-    <% if flash[:error] %>
-      <div class="alert alert-warning">
-        <p>Please <a href="/auth/facebook" class="alert-link">sign in</a> to log a dive</p>
-      </div>
-    <% end %>    
-  </div>
-  <div class="col-md-4"></div>
+<div class="col-md-4"></div>
+<div class="col-md-4 intro-text">
+  <h2>
+    welcome to divelog
+  </h2>  
+  <h3> 
+    <% if logged_in? %>     
+      <%= link_to "Log a Dive", new_dive_path, class: 'btn btn-info' %>
+    <% else %>
+      <%= link_to "Sign in with Facebook", "/auth/facebook", class: 'btn btn-info' %>
+    <% end %>
+  </h3>     
+  <% if flash[:error] %>
+    <div class="alert alert-warning">
+      <p>Please <a href="/auth/facebook" class="alert-link">sign in</a> to log a dive</p>
+    </div>
+  <% end %>    
 </div>
+<div class="col-md-4"></div>

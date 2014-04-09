@@ -78,6 +78,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (5.0.0)
@@ -153,6 +154,10 @@ GEM
     kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    koala (1.9.0)
+      addressable
+      faraday
+      multi_json
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -296,6 +301,7 @@ DEPENDENCIES
   google-analytics-rails
   jbuilder (~> 2.0)
   jquery-rails
+  koala
   omniauth-facebook
   pg
   polyamorous!
