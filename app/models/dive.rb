@@ -1,9 +1,9 @@
 class Dive < ActiveRecord::Base
-  has_many :fish, through: :divefish
+  has_many :fish, through: :divefishes
   has_many :divefishes
   belongs_to :operator
-  has_many :divers, through: :diverdive
-  has_many :diverdives
+  has_many :divers, through: :diver_dives
+  has_many :diver_dives
 
   validates_presence_of :time_in, :time_out, :date, :dive_site
   before_save :set_defaults

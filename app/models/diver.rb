@@ -1,6 +1,6 @@
 class Diver < ActiveRecord::Base
-  has_many :dives, through: :diverdive
-  has_many :diverdives
+  has_many :dives, through: :diver_dives
+  has_many :diver_dives
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |diver|

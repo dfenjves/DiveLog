@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
     @current_diver ||= Diver.find(session[:diver_id]) if session[:diver_id]
   end
   helper_method :current_diver
+
+  def logged_in?
+  	!!current_diver
+  end
+
 end

@@ -3,8 +3,13 @@ class DivesController < ApplicationController
   before_action :set_dive, only: [:show, :edit, :update, :destroy]
 
   def index
-    @q = Dive.search(params[:q])
-    @dives = @q.result(distinct: true)
+    if logged_in?
+      @dives = current_diver.dives
+    else
+      redirect_to root_path, :flash => { :error => "You must be logged in to see this page" }
+    end
+    # @q = Dive.search(params[:q])
+    # @dives = @q.result(distinct: true)
   end
 
   def show
@@ -16,7 +21,9 @@ class DivesController < ApplicationController
 
   def create
     @dive = Dive.new(dive_params)
-    if @dive.save
+    @diver = current_diver
+    if logged_in? && @dive.save
+      @diver.dives << @dive
       redirect_to dive_path(@dive)
     else
       render "new", :flash => { :error => "There was a problem with your submissions!" }
