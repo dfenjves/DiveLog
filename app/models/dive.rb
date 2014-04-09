@@ -4,6 +4,7 @@ class Dive < ActiveRecord::Base
   belongs_to :operator
   has_many :divers, through: :diver_dives
   has_many :diver_dives
+  has_many :photos
 
   validates_presence_of :time_in, :time_out, :date, :dive_site
   before_save :set_defaults
