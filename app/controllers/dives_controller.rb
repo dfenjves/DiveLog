@@ -6,7 +6,7 @@ class DivesController < ApplicationController
     if logged_in?
       @dives = current_diver.dives
     else
-      redirect_to root_path, :flash => { :error => "You must be logged in to see this page" }
+      redirect_to root_path, :flash => { :error => "You must be signed in to see this page" }
     end
     # @q = Dive.search(params[:q])
     # @dives = @q.result(distinct: true)
@@ -16,7 +16,11 @@ class DivesController < ApplicationController
   end
 
   def new
-    @dive = Dive.new
+    if logged_in?
+      @dive = Dive.new
+    else
+      redirect_to root_path, :flash => { :error => "Please sign in to log a dive" }
+    end
   end
 
   def create

@@ -1,0 +1,5 @@
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <a href="/auth/facebook" class="alert-link"><%= flash[:error] %></a>
+  </div>
+<% end %>
