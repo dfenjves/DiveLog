@@ -3,7 +3,8 @@ class DivesController < ApplicationController
   before_action :set_dive, only: [:show, :edit, :update, :destroy]
 
   def index
-    @dives = Dive.all
+    @q = Dive.search(params[:q])
+    @dives = @q.result(distinct: true)
   end
 
   def show
