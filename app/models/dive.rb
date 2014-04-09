@@ -6,6 +6,8 @@ class Dive < ActiveRecord::Base
   has_many :diver_dives
   has_many :photos
 
+  accepts_nested_attributes_for :photos, :allow_destroy => true
+
   validates_presence_of :time_in, :time_out, :date, :dive_site
   before_save :set_defaults
 
