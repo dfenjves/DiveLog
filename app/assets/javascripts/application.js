@@ -16,7 +16,14 @@
 //= require_tree .
 
 jQuery(document).ready(function($) {
-      $(".clickableRow").click(function() {
-            window.document.location = $(this).attr("href");
-      });
+  if ( $(window).width() < 1000 ) {
+    $('body').addClass('bg');
+  } 
+  else {
+    $('body').addClass('bg');
+    $('div.intro-text').addClass('intro-padding');
+  }
+  $(".clickableRow").click(function() {
+    window.document.location = $(this).attr("href");
+  });
 });
