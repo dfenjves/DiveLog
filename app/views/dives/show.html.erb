@@ -47,8 +47,8 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <%= @dive.photos.each do |photo| %>
-            <%= image_tag photo.image_url %>
+          <% @dive.photos.each do |photo| %>
+            <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url %>
           <% end %>
         </div>
       </div>

@@ -63,3 +63,4 @@ end
 gem "bootstrap-sass", "~> 3.1.1"
 gem "carrierwave"
 gem "rmagick"
+gem "mini_magick"
