@@ -3,25 +3,31 @@
   <%# f.text_field :dive_site_cont %>
   <%# f.submit %>
 <%# end %>
+<div class = "container">
+	<div class="panel panel-default">
+  	<div class="panel-body">
+    	<h2 class ="text-center"> Dive Log </h2>
+    	<table class = "table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Site</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @dives.order(date: :desc).each do |dive| %>
+						<tr class='clickableRow' href='<%= dive_path(dive) %>'>
+							<td><%= dive.id %></td>
+							<td><%= dive.dive_site %></td>
+							<td><%= dive.date %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+  	</div>
+	</div>
 
-<h2> Dive Log Index </h2>
-<table class = "table table-hover">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Site</th>
-			<th>Date</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @dives.order(date: :desc).each do |dive| %>
-			<tr class='clickableRow' href='<%= dive_path(dive) %>'>
-				<td><%= dive.id %></td>
-				<td><%= dive.dive_site %></td>
-				<td><%= dive.date %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
 
 <a href = "<%= new_dive_path %>"> Add a Dive </a>
+</div>
