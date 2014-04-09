@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408141446) do
+ActiveRecord::Schema.define(version: 20140409133009) do
 
   create_table "dive_fishes", force: true do |t|
     t.integer  "dive_id"
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 20140408141446) do
     t.string   "nationality"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   create_table "dives", force: true do |t|

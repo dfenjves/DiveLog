@@ -25,6 +25,8 @@ gem 'formtastic', github: 'justinfrench/formtastic'
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'omniauth-facebook'
+gem 'figaro', github: 'laserlemon/figaro'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
