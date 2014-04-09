@@ -1,74 +1,74 @@
 <%= form_for @dive do |f| %>
-	<div class="row">
-	<div class="col-md-6">
+	<div class="row text-center">
 		<p>
 			<%= f.label :date, "Date:" %>
 			<%= f.date_field :date%>
-		</p>
-		<p>
+
 			<%= f.label :dive_site, "Dive Site:" %>
 			<%= f.text_field :dive_site%>
-		</p>
-		<p>
-			<%= f.label :depth, "Maximum Depth:" %>
-			<%= f.number_field :depth%>
-		</p>
-		<p>
-			<%= f.label :temperature, "Water Temperature:" %>
-			<%= f.number_field :temperature%>
-		</p>
-		<p>
-			<%= f.label :time_in, "Time In:" %>
-			<%= f.time_field :time_in%> 
-			<%= f.label :time_out, "Time Out:" %>
-			<%= f.time_field :time_out%>
-		</p>
-		<p>
-			<%= f.label :visibility, "Visibility:" %>
-			<%= f.number_field :visibility%>
-		</p>
+		</p><br>
 	</div>
-	<div class="col-md-6">
-		<p>
-			<%= f.label :start_air, "Start Air:" %>
-			<%= f.number_field :start_air%>
 
-			<%= f.label :end_air, "End Air:" %>
-			<%= f.number_field :end_air%>
-		</p>
-
-		<p>
-			<%= f.label :dive_type, "Dive Type:" %>
-			<%= f.select :dive_type, [["Boat Dive", "boat"],["Beach Dive", "beach"],["Drift Dive", "drift"],["Night Dive", "Night"]] %>
-		</p>
-
-		<p>
-			<%= f.label :dive_activity, "Dive Activity:" %>
-			<%= f.select :dive_activity, [["Wreck Dive", "wreck"],["Reef Dive", "reef"],["Cave Dive", "cave"],["Training Dive", "training"]] %>
-		</p>
-
-		<p>
-			<%= f.check_box (:wetsuit) %>
-			<%= f.label :wetsuit, "Wetsuit?" %>
-		</p>
-
-		<p>
-			<%= f.label :conditions, "Water Conditions:" %>
-			<%= f.text_field :conditions%>
-		</p>
-
-		<p>
-			<%= f.label :notes, "Additional Notes:" %>
-			<%= f.text_area :notes %>
-		</p>
-	</div>
-</div>
 	<div class="row">
-  <div class="span6" style="text-align:center">
-    <%= f.submit "Sumbit Dive!" %>
-  </div>
-</div>
-	
+		<div class="col-md-6">
+			<p>
+				<%= f.label :depth, "Maximum Depth:" %>
+				<%= f.number_field :depth%>
+			</p>
+			<p>
+				<%= f.label :temperature, "Water Temperature:" %>
+				<%= f.number_field :temperature%>
+			</p>
+			<p>
+				<%= f.label :time_in, "Time In:" %>
+				<%= f.time_field :time_in%> 
+				<%= f.label :time_out, "Time Out:" %>
+				<%= f.time_field :time_out%>
+			</p>
+			<p>
+				<%= f.label :visibility, "Visibility:" %>
+				<%= f.number_field :visibility%>
+			</p>
+		</div>
+		<div class="col-md-6">
+			<p>
+				<%= f.label :start_air, "Start Air:" %>
+				<%= f.number_field :start_air%>
 
+				<%= f.label :end_air, "End Air:" %>
+				<%= f.number_field :end_air%>
+			</p>
 
+			<p>
+				<%= f.label :dive_type, "Dive Type:" %>
+				<%= f.select :dive_type, [["Boat Dive", "boat"],["Beach Dive", "beach"],["Drift Dive", "drift"],["Night Dive", "Night"]] %>
+			</p>
+
+			<p>
+				<%= f.label :dive_activity, "Dive Activity:" %>
+				<%= f.select :dive_activity, [["Wreck Dive", "wreck"],["Reef Dive", "reef"],["Cave Dive", "cave"],["Training Dive", "training"]] %>
+			</p>
+
+			<p>
+				<%= f.check_box (:wetsuit) %>
+				<%= f.label :wetsuit, "Wetsuit?" %>
+			</p>
+
+			<p>
+				<%= f.label :conditions, "Water Conditions:" %>
+				<%= f.text_field :conditions%>
+			</p>
+		</div>
+		<div class="row">
+				<div class="span6" style="text-align:center">
+					<%= f.text_area :notes, :placeholder => "Notes", :size => "50x10" %>		  	
+				</div>
+		</div>
+		
+	</div>
+	<div class="row">
+  	<div class="span6" style="text-align:center">
+   	 <%= f.submit "Sumbit Dive!" %>
+  	</div>
+	</div>
 <% end %>
