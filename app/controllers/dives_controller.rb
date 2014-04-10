@@ -40,15 +40,20 @@ class DivesController < ApplicationController
   end
 
   def update
+    @dive.update(dive_params)
+    redirect_to @dive
   end
 
   def destroy
+    @dive.destroy
+    redirect_to diver_path
   end
 
   private
 
   def set_dive
-    @dive = Dive.find(params[:id])
+    @dive = Dive.find_by(id: params[:id])
+    redirect_to diver_path if @dive == nil
   end
 
   def dive_params
