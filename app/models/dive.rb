@@ -9,9 +9,11 @@ class Dive < ActiveRecord::Base
   accepts_nested_attributes_for :photos, :allow_destroy => true
 
   validates_presence_of :time_in, :time_out, :date, :dive_site
-  before_save :set_defaults
 
-  # ATTR_IN_METERS = [:depth, :visibility]
+  validates :start_air, :end_air, numericality: true
+  validates :depth, :temperature, numericality: { only_integer: true }
+
+  before_save :set_defaults
 
   def total_time_in_minutes
     ((self.time_out - self.time_in) / 60).to_i
@@ -20,12 +22,6 @@ class Dive < ActiveRecord::Base
   def total_air_used
     self.start_air - self.end_air if start_air && end_air
   end
-
-  # ATTR_IN_METERS.each do |a|
-  #   define_method(a) do
-  #    instance_variable_get("@#{a.to_s}") ? instance_variable_get("@#{a.to_s}").to_s + " m" : "Not Recorded" }
-  #   end
-  # end
 
   protected
 

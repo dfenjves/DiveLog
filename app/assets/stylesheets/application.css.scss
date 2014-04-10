@@ -44,3 +44,17 @@ body {
   text-align: center;
   color: white;
 }
+
+.purr {
+  position: absolute;
+  left: 40%;
+  right: 60%;
+  text-align: center;
+  top: 60px;
+  margin: 0 auto;
+  width: 250px;
+  padding: 5px;
+  background-color: #FCC;
+  border: solid 2px #C66;
+  &:first-letter { text-transform: uppercase; }
+}
