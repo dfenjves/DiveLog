@@ -2,6 +2,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <h2 class="text-center">A dive at <%= @dive.dive_site %></h2>
+      <div class="text-center"><a class="btn btn-info text-center" href="<%= edit_dive_path(@dive) %>">Edit Dive</a></div>
       <div class="row">
         <div class="col-md-6">
           <% @dive.divers.each do |d| %>
