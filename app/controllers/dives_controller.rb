@@ -27,10 +27,7 @@ class DivesController < ApplicationController
     @dive = Dive.new(dive_params)
     @diver = current_diver
     if logged_in? && @dive.save
-      @image = Photo.new
-      @image.image = params[:dive][:image]
-      @image.save
-      @dive.photos << @image
+      params[:photos]['image'].each { |p| @dive.photos.create!(:image => p, :dive_id => @dive.id) }    
       @diver.dives << @dive
       redirect_to dive_path(@dive)
     else

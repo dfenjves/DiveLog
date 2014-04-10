@@ -64,7 +64,9 @@
 					<%= f.text_area :notes, :placeholder => "Notes", :size => "50x10" %>		  	
 				</div>
 				<div class="col-md-6">
-					<%= f.file_field :image %>
+					<%= f.fields_for :photo do |p| %>
+						<%= p.file_field :image, :multiple => true, name: "photos[image][]" %>
+					<% end %>
 				</div>
 		</div>
 		
