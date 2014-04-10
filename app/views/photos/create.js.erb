@@ -1,0 +1,5 @@
+<% if @photo.new_record? %>
+  alert("Failed to upload photo");
+<% else %>
+  $("#gallery").append("<%= j render(@photo) %>");
+<% end %>
