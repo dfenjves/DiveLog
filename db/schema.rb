@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409195047) do
+ActiveRecord::Schema.define(version: 20140410151802) do
 
   create_table "dive_fishes", force: true do |t|
     t.integer  "dive_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20140409195047) do
     t.integer  "end_air"
     t.string   "dive_type"
     t.string   "dive_activity"
-    t.string   "wetsuit"
+    t.boolean  "wetsuit",       limit: 255
     t.string   "conditions"
     t.text     "notes"
     t.datetime "created_at"

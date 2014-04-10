@@ -17,6 +17,14 @@ GIT
       i18n
 
 GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: df178520bf9ba405baee9528d5dbb630d6ff760c
+  specs:
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (>= 3.1)
+
+GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: 7417ecf254e13400c45aca31bee4924610d8901f
   specs:
@@ -301,6 +309,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  best_in_place!
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.1.1)
@@ -315,6 +324,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-fileupload-rails
   jquery-rails
+  jquery-ui-rails
   koala
   mini_magick
   omniauth-facebook

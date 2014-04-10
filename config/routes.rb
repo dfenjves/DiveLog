@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/dives/new' => 'dives#new', as: 'new_dive'
   get '/dives/:id/edit' => 'dives#edit', as: 'edit_dive'
   get '/dives/:id' => 'dives#show', as: 'dive'
+  put '/dives/:id' => 'dives#update'
   patch '/dives/:id' => 'dives#update'
   delete '/dives/:id' => 'dives#destroy'
 
