@@ -6,3 +6,8 @@ input {
 	border-radius: 5px;
 	border-image-slice: none;
 }
+
+.bar {
+	height: 18px;
+	background-color: grey;
+}

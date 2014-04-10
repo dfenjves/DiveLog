@@ -58,8 +58,14 @@
             <%= f.hidden_field :dive_id, :value => @dive.id %>
             <%= f.label :image, "Add Photos" %>
             <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
-            <%= f.submit %>
           <% end %>
+
+          <script id="template-upload" type="text/x-tmpl">
+            <div class="upload">
+              {%=o.name%}
+              <div class="progress"><div class="bar" style="width: 0%"></div></div>
+            </div>
+            </script>
 
         </div>
       </div>
