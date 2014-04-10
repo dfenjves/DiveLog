@@ -53,12 +53,15 @@
             <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url %>
           <% end %>
           </div>
-
-          <%= form_for @photo do |f| %>
-            <%= f.hidden_field :dive_id, :value => @dive.id %>
-            <%= f.label :image, "Add Photos" %>
-            <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
-          <% end %>
+          <div class="uploaderbutton">
+            <div class="uploader">
+            <%= form_for @photo do |f| %>
+              <%= f.hidden_field :dive_id, :value => @dive.id %>
+              <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
+            <% end %>
+            </div>
+            <button class = "btn btn-success fileinput-button">Upload a File</button>
+          </div>
 
           <script id="template-upload" type="text/x-tmpl">
             <div class="upload">
