@@ -50,6 +50,14 @@
           <% @dive.photos.each do |photo| %>
             <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url %>
           <% end %>
+
+          <%= form_for @photo do |f| %>
+            <%= f.hidden_field :dive_id, :value => @dive.id %>
+            <%= f.label :image, "Add Photos" %>
+            <%= f.file_field :image, :multiple => true, name: "image[]" %>
+            <%= f.submit "Upload Photos" %>
+          <% end %>
+
         </div>
       </div>
 
