@@ -11,3 +11,20 @@ input {
 	height: 18px;
 	background-color: grey;
 }
+
+.uploader {
+	opacity: 0;
+	cursor:pointer;
+	position:absolute;
+	top: 0;
+	z-index: 2;
+}
+
+button .fileinput-button {
+	position: relative;
+	z-index: -1;
+}
+
+.uploaderbutton {
+	position: relative;
+}
