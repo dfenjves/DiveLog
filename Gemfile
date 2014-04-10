@@ -28,6 +28,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'omniauth-facebook'
 gem 'koala'
 gem 'figaro', github: 'laserlemon/figaro'
+gem 'jquery-ui-rails'
+gem 'best_in_place', github: 'bernat/best_in_place'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

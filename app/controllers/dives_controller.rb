@@ -1,5 +1,5 @@
 class DivesController < ApplicationController
-  
+
   before_action :set_dive, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -27,7 +27,9 @@ class DivesController < ApplicationController
     @dive = Dive.new(dive_params)
     @diver = current_diver
     if logged_in? && @dive.save
-      params[:photos]['image'].each { |p| @dive.photos.create!(:image => p, :dive_id => @dive.id) }    
+      if params[:photos]
+        params[:photos]['image'].each { |p| @dive.photos.create!(:image => p, :dive_id => @dive.id) }  
+      end
       @diver.dives << @dive
       redirect_to dive_path(@dive)
     else
@@ -41,7 +43,7 @@ class DivesController < ApplicationController
 
   def update
     @dive.update(dive_params)
-    redirect_to @dive
+    respond_with_bip @dive
   end
 
   def destroy

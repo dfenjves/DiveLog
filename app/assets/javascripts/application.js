@@ -12,10 +12,41 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require bootstrap
+//= require best_in_place
+//= require best_in_place.purr
 //= require_tree .
 
+ATTRIBUTES_IN_UNITS = ["visibility", "start_air", "end_air", "temperature", "depth"];
+
+var changeUnits = function(){
+  for( var i=0; i < ATTRIBUTES_IN_UNITS.length; i++ ) {
+    if ($("span[data-attribute='" + ATTRIBUTES_IN_UNITS[i] + "']").text() == "" || $("span[data-attribute='" + ATTRIBUTES_IN_UNITS[i] + "']").text() == "—" ) {
+      $("." + ATTRIBUTES_IN_UNITS[i]).hide();
+    }
+    else {
+      $("." + ATTRIBUTES_IN_UNITS[i]).show();
+    }
+  }
+}
+
 jQuery(document).ready(function($) {
+
+  $(".best_in_place").best_in_place();
+
+  changeUnits();
+
+  $('.change-units').submit( function(e) {
+    changeUnits();
+  });
+
+  $('#datepicker').datepicker({  
+      inline: true,  
+      showOtherMonths: true,  
+      dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],  
+  });  
+
   if ( $(window).width() < 1000 ) {
     $('body').addClass('bg');
   } 
