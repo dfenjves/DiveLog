@@ -1,5 +1,5 @@
 <% if @photo.new_record? %>
-  alert("Failed to upload photo");
+  alert("Failed to upload photo: <%= j @photo.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-  $("#gallery").append("<%= j render(@photo) %>");
+  $("#gallery").append('<a href="<%= @photo.image_url %>" #><img src="<%=@photo.image_url(:thumb)%>"><a>');
 <% end %>
