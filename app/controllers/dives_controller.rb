@@ -13,6 +13,7 @@ class DivesController < ApplicationController
   end
 
   def show
+    @photo = @dive.photos.new
   end
 
   def new
