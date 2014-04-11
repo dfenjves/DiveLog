@@ -1,0 +1,112 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/caguthrie/projects/fis/divelog/app/models/dive.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/caguthrie/projects/fis/divelog/app/models/diver.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/caguthrie/projects/fis/divelog/app/models/fish.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/caguthrie/projects/fis/divelog/app/models/operator.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/caguthrie/projects/fis/divelog/app/models/photo.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/caguthrie/projects/fis/divelog/app/models/diver_dive.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/caguthrie/projects/fis/divelog/app/models/dive_fish.rb": [
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1397228370
+  }
+}

@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :diver do
-    name "MyString"
-    email "MyString"
+    name "Bob"
+    email "bob@bob.com"
     birthday "2014-04-08"
-    certification_level "MyString"
-    nationality "MyString"
+    certification_level "Expert"
+    nationality "Sealandian"
   end
 end

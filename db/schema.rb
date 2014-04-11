@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410151802) do
+ActiveRecord::Schema.define(version: 20140411135212) do
 
   create_table "dive_fishes", force: true do |t|
     t.integer  "dive_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140410151802) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "operator_id"
   end
 
   create_table "fish", force: true do |t|

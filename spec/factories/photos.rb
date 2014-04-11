@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :photo do
     dive_id 1
-    image "MyString"
+    image Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/images/fish.jpg')))
   end
 end

@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :fish do
-    name "MyString"
-    color "MyString"
-    length 1
-    wiki_link "MyString"
-    picture_link "MyString"
+    name "Nemo"
+    color "blue"
+    length 10
+    wiki_link "en.wikipedia.com/nemo"
+    picture_link "http://someimage.jpg"
   end
 end

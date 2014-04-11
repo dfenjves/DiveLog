@@ -1,6 +1,6 @@
 class Dive < ActiveRecord::Base
-  has_many :fish, through: :divefishes
-  has_many :divefishes
+  has_many :fish, through: :dive_fishes
+  has_many :dive_fishes
   belongs_to :operator
   has_many :divers, through: :diver_dives
   has_many :diver_dives
@@ -10,17 +10,13 @@ class Dive < ActiveRecord::Base
 
   validates_presence_of :time_in, :time_out, :date, :dive_site
 
-  validates :start_air, :end_air, numericality: true
-  validates :depth, :temperature, numericality: { only_integer: true }
+  validates :start_air, :end_air, numericality: true, :allow_nil => true
+  validates :depth, :temperature, numericality: { only_integer: true }, :allow_nil => true
 
   before_save :set_defaults
 
   def total_time_in_minutes
     ((self.time_out - self.time_in) / 60).to_i
-  end
-
-  def total_air_used
-    self.start_air - self.end_air if start_air && end_air
   end
 
   protected

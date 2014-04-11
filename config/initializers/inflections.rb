@@ -14,4 +14,6 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'dive', 'dives'
   inflect.irregular 'diver_dive', 'diver_dives'
+  inflect.irregular 'fish', 'fish'
+  inflect.irregular 'dive_fish', 'dive_fishes'
 end

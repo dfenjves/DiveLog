@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :operator do
-    name "MyString"
-    location "MyString"
-    rating 1
+    name "Scuba Sensations"
+    location "Nassau"
+    rating 5
   end
 end
