@@ -44,13 +44,15 @@ jQuery(document).ready(function($) {
   });
 
   $(".times").on('select', function(e) {
-    // console.log($("[data-attribute='time_in']").text());
-    console.log($("input").val());
     $("input").val(function(index, value) {
       return value.replace($("input").val(),'');
     });
-    $("input").attr('placeholder', 'Please enter a time')
+    $("input").attr('placeholder', 'Please enter a time');
   });
+
+  // $(".times").on('change', function(e) {
+  //   $(".length-of-time").prepend("<%= @dive.total_time_in_minutes %>");
+  // });
 
   if ( $(window).width() < 1000 ) {
     $('body').addClass('bg');
