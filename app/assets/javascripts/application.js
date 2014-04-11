@@ -43,9 +43,13 @@ jQuery(document).ready(function($) {
     changeUnits();
   });
 
-  $("[data-attribute='time_in']").submit( function(e) {
-    e.preventDefault();
-    console.log("dd");
+  $(".times").on('select', function(e) {
+    // console.log($("[data-attribute='time_in']").text());
+    console.log($("input").val());
+    $("input").val(function(index, value) {
+      return value.replace($("input").val(),'');
+    });
+    $("input").attr('placeholder', 'Please enter a time')
   });
 
   if ( $(window).width() < 1000 ) {

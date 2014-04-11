@@ -17,11 +17,13 @@
         <h3>
           <%= best_in_place @dive, :date, type: :date, display_as: :display_date %>
         </h3>
-        <h4>
+        <h4 class="times">
           From <%= best_in_place @dive, :time_in, display_as: :display_time_in %> to 
           <%= best_in_place @dive, :time_out, display_as: :display_time_out %>
           <br/>
-          <%= @dive.total_time_in_minutes %> Minutes Long
+          <span class="length-of-time">
+            <%= @dive.total_time_in_minutes %> Minutes Long
+          </span>
         </h4>
         <% @dive.divers.each do |d| %>
           <%= link_to((image_tag d.image), d) %>
