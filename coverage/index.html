@@ -14,26 +14,26 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-04-11T10:59:30-04:00">2014-04-11T10:59:30-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-04-11T11:17:43-04:00">2014-04-11T11:17:43-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">78.26%</span></span>
+    (<span class="covered_percent"><span class="red">78.72%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.81
+         0.98
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>46</b> relevant lines. 
-    <span class="green"><b>36</b> lines covered</span> and
+    <b>47</b> relevant lines. 
+    <span class="green"><b>37</b> lines covered</span> and
     <span class="red"><b>10</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -57,7 +57,7 @@
         <td>17</td>
         <td>17</td>
         <td>0</td>
-        <td>1.1</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -72,12 +72,12 @@
       
       <tr>
         <td class="strong"><a href="#d123c0be7601c44d59f5ed4c6200426025affade" class="src_link" title="app/models/diver.rb">app/models/diver.rb</a></td>
-        <td class="red strong">33.33 %</td>
-        <td>22</td>
-        <td>15</td>
-        <td>5</td>
+        <td class="red strong">37.5 %</td>
+        <td>24</td>
+        <td>16</td>
+        <td>6</td>
         <td>10</td>
-        <td>0.3</td>
+        <td>0.4</td>
       </tr>
       
       <tr>
@@ -166,19 +166,19 @@
           <div class="file_list_container" id="Models">
   <h2>
     <span class="group_name">Models</span>
-    (<span class="covered_percent"><span class="red">78.26%</span></span>
+    (<span class="covered_percent"><span class="red">78.72%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.81
+         0.98
        </span>
     </span> hits/line)
   </h2>
   <a name="Models"></a>
   <div>
     <b>7</b> files in total.
-    <b>46</b> relevant lines. 
-    <span class="green"><b>36</b> lines covered</span> and
+    <b>47</b> relevant lines. 
+    <span class="green"><b>37</b> lines covered</span> and
     <span class="red"><b>10</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -202,7 +202,7 @@
         <td>17</td>
         <td>17</td>
         <td>0</td>
-        <td>1.1</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -217,12 +217,12 @@
       
       <tr>
         <td class="strong"><a href="#d123c0be7601c44d59f5ed4c6200426025affade" class="src_link" title="app/models/diver.rb">app/models/diver.rb</a></td>
-        <td class="red strong">33.33 %</td>
-        <td>22</td>
-        <td>15</td>
-        <td>5</td>
+        <td class="red strong">37.5 %</td>
+        <td>24</td>
+        <td>16</td>
+        <td>6</td>
         <td>10</td>
-        <td>0.3</td>
+        <td>0.4</td>
       </tr>
       
       <tr>
@@ -549,8 +549,8 @@
           <code class="ruby">  def set_defaults</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="25">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="10" data-linenumber="25">
+          <span class="hits">10</span>
           
           <code class="ruby">    self.notes = &quot;No Notes Recorded&quot; if self.notes == &quot;&quot;</code>
         </li>
@@ -754,10 +754,10 @@
         <div class="source_table" id="d123c0be7601c44d59f5ed4c6200426025affade">
   <div class="header">
     <h3>app/models/diver.rb</h3>
-    <h4><span class="red">33.33 %</span> covered</h4>
+    <h4><span class="red">37.5 %</span> covered</h4>
     <div>
-      <b>15</b> relevant lines. 
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>16</b> relevant lines. 
+      <span class="green"><b>6</b> lines covered</span> and
       <span class="red"><b>10</b> lines missed.</span>
     </div>
   </div>
@@ -792,106 +792,118 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
+          <code class="ruby">  validates_presence_of :name</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
           <code class="ruby">  def self.from_omniauth(auth)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="6">
-          
-          
-          <code class="ruby">    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |diver|</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="7">
-          
-          
-          <code class="ruby">      diver.provider = auth.provider</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="8">
           
           
-          <code class="ruby">      diver.uid = auth.uid</code>
+          <code class="ruby">    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |diver|</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="9">
           
           
-          <code class="ruby">      diver.name = auth.info.name</code>
+          <code class="ruby">      diver.provider = auth.provider</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="10">
           
           
-          <code class="ruby">      diver.email = auth.info.email</code>
+          <code class="ruby">      diver.uid = auth.uid</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="11">
           
           
-          <code class="ruby">      diver.image = auth.info.image</code>
+          <code class="ruby">      diver.name = auth.info.name</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="12">
           
           
-          <code class="ruby">      diver.oauth_token = auth.credentials.token</code>
+          <code class="ruby">      diver.email = auth.info.email</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="13">
           
           
-          <code class="ruby">      diver.oauth_expires_at = Time.at(auth.credentials.expires_at)</code>
+          <code class="ruby">      diver.image = auth.info.image</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="14">
           
           
+          <code class="ruby">      diver.oauth_token = auth.credentials.token</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="15">
+          
+          
+          <code class="ruby">      diver.oauth_expires_at = Time.at(auth.credentials.expires_at)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
           <code class="ruby">      diver.save!</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
           <code class="ruby">  def facebook</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
+        <li class="missed" data-hits="0" data-linenumber="21">
           
           
           <code class="ruby">    @facebook ||= Koala::Facebook::API.new(oauth_token)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">  end  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">end</code>

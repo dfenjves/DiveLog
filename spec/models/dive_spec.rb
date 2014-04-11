@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Dive do
 
-  describe 'basic model functions' do
+  before :each do
+    @dive = FactoryGirl.build(:dive)
+  end
 
-    before :each do
-      @dive = FactoryGirl.build(:dive)
-    end
+  describe 'basic model functions' do
 
     it 'can be created and successfully saved' do
       expect(@dive.save).to be_true
@@ -56,6 +56,34 @@ describe Dive do
       expect(@dive.save).to be_false  
     end
 
+    it 'successfully saves with blank temperature' do
+      @dive.temperature = ""
+      expect(@dive.save).to be_true
+      @dive.temperature = nil
+      expect(@dive.save).to be_true      
+    end
+
+    it 'successfully saves with blank depth' do
+      @dive.depth = ""
+      expect(@dive.save).to be_true
+      @dive.depth = nil
+      expect(@dive.save).to be_true      
+    end    
+
+    it 'successfully saves with blank start_air' do
+      @dive.start_air = ""
+      expect(@dive.save).to be_true
+      @dive.start_air = nil
+      expect(@dive.save).to be_true      
+    end
+
+    it 'successfully saves with end_air' do
+      @dive.end_air = ""
+      expect(@dive.save).to be_true
+      @dive.end_air = nil
+      expect(@dive.save).to be_true      
+    end
+
     it 'can return total time of dive in minutes' do
       expect(@dive.total_time_in_minutes).to eq(2)
     end
@@ -69,32 +97,28 @@ describe Dive do
 
   describe 'associations' do
 
-    before :each do
-      @dive = FactoryGirl.build(:dive)
-      @diver = FactoryGirl.build(:diver)
-      @fish = FactoryGirl.build(:fish)
-      @operator = FactoryGirl.build(:operator)
-      @photo = FactoryGirl.build(:photo)
-    end    
-
     it 'has many divers' do
+      @diver = FactoryGirl.build(:diver)
       @dive.divers << @diver
       expect(@dive.divers.length).to eq(1)
       expect(@dive.divers.last.name).to eq("Bob")
     end
 
     it 'has many fish' do
+      @fish = FactoryGirl.build(:fish)
       @dive.fish << @fish
       expect(@dive.fish.length).to eq(1)
       expect(@dive.fish.last.name).to eq("Nemo")
     end
 
     it 'belongs to an operator' do
+      @operator = FactoryGirl.build(:operator)
       @dive.operator = @operator
       expect(@dive.operator.name).to eq("Scuba Sensations")    
     end
 
     it 'has many photos' do
+      @photo = FactoryGirl.build(:photo)
       @dive.photos << @photo
       expect(@dive.photos.length).to eq(1)
     end

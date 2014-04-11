@@ -2,6 +2,8 @@ class Diver < ActiveRecord::Base
   has_many :dives, through: :diver_dives
   has_many :diver_dives
 
+  validates_presence_of :name
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |diver|
       diver.provider = auth.provider
