@@ -16,6 +16,8 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+ //= depend_on_asset "turtle.jpg"
+ //= depend_on_asset "red_pen.png"
  */
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
@@ -35,7 +37,7 @@ body {
 }
 
 .bg {
-  background-image: url("http://i.imgur.com/E4TqiBm.jpg");
+  background-image: image-url('turtle.jpg');
   background-size: cover;
 }
 

@@ -40,19 +40,39 @@ class DivesController < ApplicationController
   end
 
   def edit
+    if !logged_in?
+      redirect_to root_path, :flash => { :error => "Please log in" }
+    elsif !dive_team_member?
+      redirect_to diver_path, :flash => { :error => "You can't edit someone else's dive!" }
+    end
   end
 
   def update
-    @dive.update(dive_params)
-    respond_with_bip @dive
+    respond_to do |format|
+      if @dive.update_attributes(dive_params)
+        format.html { redirect_to(@dive, :notice => 'Dive was successfully updated.') }
+        format.json { respond_with_bip(@dive) }
+      else
+        format.html { render :action => "edit", :error => 'Something went wrong.' }
+        format.json { respond_with_bip(@dive) }
+      end
+    end    
   end
 
   def destroy
-    @dive.destroy
-    redirect_to diver_path
+    if logged_in? && dive_team_member?
+      @dive.destroy
+      redirect_to diver_path
+    else
+      redirect_to dive_path(@dive), :flash => { :error => "You can't delete someone else's dive!" }
+    end
   end
 
   private
+
+  def dive_team_member?
+    @dive.divers.include?(current_diver)
+  end
 
   def set_dive
     @dive = Dive.find_by(id: params[:id])

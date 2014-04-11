@@ -19,6 +19,10 @@ class Dive < ActiveRecord::Base
     ((self.time_out - self.time_in) / 60).to_i
   end
 
+  def display_date 
+    date.strftime("%B %d, %Y")
+  end
+
   protected
 
   def set_defaults

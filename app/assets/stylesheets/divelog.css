@@ -28,3 +28,9 @@ button .fileinput-button {
 .uploaderbutton {
 	position: relative;
 }
+
+.best_in_place:hover {
+  /*padding-right: 1.5em;*/
+  background: image-url('red_pen.png') no-repeat right;
+  background-color: #CCC;
+}
