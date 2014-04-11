@@ -23,6 +23,14 @@ class Dive < ActiveRecord::Base
     date.strftime("%B %d, %Y")
   end
 
+  def display_time_in
+    time_in.strftime("%I:%M %p")
+  end
+
+  def display_time_out
+    time_out.strftime("%I:%M %p")
+  end
+
   protected
 
   def set_defaults

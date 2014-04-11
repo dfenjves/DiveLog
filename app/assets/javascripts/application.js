@@ -43,11 +43,10 @@ jQuery(document).ready(function($) {
     changeUnits();
   });
 
-  $('#datepicker').datepicker({  
-      inline: true,  
-      showOtherMonths: true,  
-      dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-  });  
+  $("[data-attribute='time_in']").submit( function(e) {
+    e.preventDefault();
+    console.log("dd");
+  });
 
   if ( $(window).width() < 1000 ) {
     $('body').addClass('bg');

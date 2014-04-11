@@ -18,7 +18,8 @@
           <%= best_in_place @dive, :date, type: :date, display_as: :display_date %>
         </h3>
         <h4>
-          From <%= best_in_place @dive, :time_in %> to <%= @dive.time_out.strftime("%I:%M %p") %>
+          From <%= best_in_place @dive, :time_in, display_as: :display_time_in %> to 
+          <%= best_in_place @dive, :time_out, display_as: :display_time_out %>
           <br/>
           <%= @dive.total_time_in_minutes %> Minutes Long
         </h4>
