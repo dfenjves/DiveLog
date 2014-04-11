@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140411135212) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "dive_fishes", force: true do |t|
     t.integer  "dive_id"
     t.integer  "fish_id"
@@ -54,11 +57,11 @@ ActiveRecord::Schema.define(version: 20140411135212) do
     t.integer  "end_air"
     t.string   "dive_type"
     t.string   "dive_activity"
-    t.boolean  "wetsuit",       limit: 255
     t.string   "conditions"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "wetsuit"
     t.integer  "operator_id"
   end
 

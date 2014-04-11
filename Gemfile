@@ -56,8 +56,11 @@ group :test, :development do
   gem "pry"
 end
 
-group :production do
+group :development, :production do
   gem "pg"
+end
+
+group :production do
   gem "google-analytics-rails"
   gem "rails_12factor"
 end

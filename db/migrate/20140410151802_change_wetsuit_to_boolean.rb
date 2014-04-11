@@ -1,5 +1,7 @@
 class ChangeWetsuitToBoolean < ActiveRecord::Migration
   def change
-    change_column :dives, :wetsuit, :boolean
+    add_column :dives, :new_wetsuit, :boolean
+    remove_column :dives, :wetsuit
+    rename_column :dives, :new_wetsuit, :wetsuit
   end
 end
