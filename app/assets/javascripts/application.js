@@ -50,6 +50,8 @@ jQuery(document).ready(function($) {
     $("input").attr('placeholder', 'Please enter a time');
   });
 
+    console.log($(".time_in_bip").text());
+
   // $(".times").on('change', function(e) {
   //   $(".length-of-time").prepend("<%= @dive.total_time_in_minutes %>");
   // });

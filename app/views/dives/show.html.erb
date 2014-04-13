@@ -21,9 +21,9 @@
           From <%= best_in_place @dive, :time_in, display_as: :display_time_in %> to 
           <%= best_in_place @dive, :time_out, display_as: :display_time_out %>
           <br/>
-          <span class="length-of-time">
+          <!--<span class="length-of-time">
             <%= @dive.total_time_in_minutes %>
-          </span> Minutes Long
+          </span> Minutes Long -->
         </h4>
         <% @dive.divers.each do |d| %>
           <%= link_to((image_tag d.image), d) %>
@@ -55,29 +55,30 @@
           Wetsuit? <%= best_in_place @dive, :wetsuit, type: :checkbox, collection: %w[No Yes] %>
         </p>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div id="gallery">
-          <% @dive.photos.each do |photo| %>
-            <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url %>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div id="gallery">
+        <% @dive.photos.each do |photo| %>
+          <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url %>
+        <% end %>
+        </div>
+        <br/>
+        <div class="uploaderbutton">
+          <div class="uploader">
+          <%= form_for @photo do |f| %>
+            <%= f.hidden_field :dive_id, :value => @dive.id %>
+            <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
           <% end %>
           </div>
-          <div class="uploaderbutton">
-            <div class="uploader">
-            <%= form_for @photo do |f| %>
-              <%= f.hidden_field :dive_id, :value => @dive.id %>
-              <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
-            <% end %>
-            </div>
-            <button class = "btn btn-success fileinput-button">Upload a Photo</button>
-          </div>
+          <button class = "btn btn-success fileinput-button">Upload a Photo</button>
+        </div>
 
-        </div>
-        <div class="col-md-6">
-          <p>
-            Notes: <%= best_in_place @dive, :notes, type: :textarea %>
-          </p>
-        </div>
+      </div>
+      <div class="col-md-6">
+        <p>
+          Notes: <%= best_in_place @dive, :notes, type: :textarea %>
+        </p>
       </div>
     </div>
   </div>
