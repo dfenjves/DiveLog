@@ -18,6 +18,7 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require best_in_place
 //= require best_in_place.purr
+//= require fancybox/jquery.fancybox.pack
 //= require_tree .
 
 ATTRIBUTES_IN_UNITS = ["visibility", "start_air", "end_air", "temperature", "depth"];

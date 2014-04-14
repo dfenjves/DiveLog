@@ -34,3 +34,18 @@ button .fileinput-button {
   background: image-url('red_pen.png') no-repeat right;
   background-color: #CCC;
 }
+
+a.fancybox span.remove-icon{
+	visibility:hidden;
+  position:absolute;
+  left:52%;
+  top:5%;
+  filter:alpha(opacity=50);
+  -moz-opacity:0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+
+a.fancybox:hover span.remove-icon{
+	visibility:visible;
+}

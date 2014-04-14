@@ -56,17 +56,28 @@
         </p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div id="gallery">
-        <% @dive.photos.each do |photo| %>
-          <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url %>
-        <% end %>
-        </div>
+
+        <div class="row gallery">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Photos</h3>
+            </div>
+
+            <% @dive.photos.each do |photo| %>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="fancybox" rel="group" href="<%= photo.image_url %>">
+                  <span class="remove-icon" data-photo-id="<%= photo.id %>"><%= image_tag("/remove.png",  height: '16', width: '16') %></span>
+                  <img class="image-thumb thumbnail" src="<%= photo.image_url(:thumb) %>"  alt="" />
+                </a>
+            </div>
+            <% end %>
+        </div><!-- end gallery row -->
+
+
         <br/>
         <div class="uploaderbutton">
           <div class="uploader">
-          <%= form_for @photo do |f| %>
+          <%= form_for @photo, remote:true do |f| %>
             <%= f.hidden_field :dive_id, :value => @dive.id %>
             <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
           <% end %>
@@ -74,7 +85,6 @@
           <button class = "btn btn-success fileinput-button">Upload a Photo</button>
         </div>
 
-      </div>
       <div class="col-md-6">
         <p>
           Notes: <%= best_in_place @dive, :notes, type: :textarea %>
