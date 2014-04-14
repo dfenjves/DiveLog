@@ -56,7 +56,11 @@
         </p>
       </div>
     </div>
-
+      <div class="col-md-6">
+        <p>
+          Notes: <%= best_in_place @dive, :notes, type: :textarea %>
+        </p>
+      </div>  
         <div class="row gallery">
 
             <div class="col-lg-12">
@@ -85,11 +89,12 @@
           <button class = "btn btn-success fileinput-button">Upload a Photo</button>
         </div>
 
-      <div class="col-md-6">
-        <p>
-          Notes: <%= best_in_place @dive, :notes, type: :textarea %>
-        </p>
+    <div class="row fish">
+      <div class="col-lg-12">
+          <h3 class="page-header">Fish Sightings</h3>
       </div>
+    </div><!-- end fish row -->
+
     </div>
   </div>
 </div>
