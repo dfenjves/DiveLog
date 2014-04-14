@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/divers/:id' => 'divers#show', as: 'diver'
 
   post '/photos' => 'photos#create'
+  delete '/photos/:id' => 'photos#destroy'
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

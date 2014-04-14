@@ -60,9 +60,14 @@
       <div class="col-md-6">
         <div id="gallery">
         <% @dive.photos.each do |photo| %>
-          <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url %>
+          <div class="image-container">
+           <a class="fancybox" rel="group" href="<%= photo.image_url %>"><img class="image-thumb" src="<%= photo.image_url(:thumb) %>"  alt="" /></a>
+           <a class="remove" data-photo-id="<%= photo.id %>">Remove</a>
+          </div>
         <% end %>
         </div>
+
+
         <br/>
         <div class="uploaderbutton">
           <div class="uploader">

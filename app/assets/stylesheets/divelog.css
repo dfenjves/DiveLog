@@ -34,3 +34,8 @@ button .fileinput-button {
   background: image-url('red_pen.png') no-repeat right;
   background-color: #CCC;
 }
+
+.remove-button {
+	position: relative;
+	z-index: -1;
+}
