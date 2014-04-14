@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'nokogiri'
 require 'open-uri'
 
@@ -18,33 +11,43 @@ def scrape
       puts "scraping #{fish}"
       next if fish_list.css("[title=\"" + fish + "\"]").length == 0
       one_fish_page = "http://en.wikipedia.org" + fish_list.css("[title=\"" + fish + "\"]")[0].attributes["href"].value
-      # if is_a_disambiguation?(one_fish_page)
-      #   page = Nokogiri::HTML(open(one_fish_page))
-      #   page.css("#mw-content-text a").each do |link|
-      #     fish_url = "http://en.wikipedia.org/" + link["href"].gsub(/^(\/)+/,'')
-      #     try_fish = Nokogiri::HTML(open(fish_url))
-      #     if try_fish.css('.infobox img').length != 0
-      #       one_fish_page = fish_url
-      #       break;
-      #     end
-      #   end
-      # end
-      fish_in_db.wiki_link = one_fish_page
-      one_fish_nokogiri = Nokogiri::HTML(open(one_fish_page))
-      if one_fish_nokogiri.css('.infobox img').length != 0
-        fish_in_db.picture_link = one_fish_nokogiri.css(".infobox img")[0].attributes["src"].value.gsub(/^(\/)+/,'')
+      fish_in_db.picture_link = grab_picture(Nokogiri::HTML(open(one_fish_page)))
+      if is_a_disambiguation?(one_fish_page) && !fish_in_db.picture_link
+        page = Nokogiri::HTML(open(one_fish_page))
+        page.css("#mw-content-text a").each do |link|
+          fish_url = "http://en.wikipedia.org/" + link["href"].gsub(/^(\/)+/,'')
+          next if fish_url.count(":") > 1 || fish_url.include?("redlink")
+          puts "intermediate scrape: #{fish_url}"
+          one_fish_picture = grab_picture(Nokogiri::HTML(open(fish_url)))
+          if one_fish_picture
+            fish_in_db.picture_link = one_fish_picture
+            break
+          end
+        end
       end
+      fish_in_db.wiki_link = one_fish_page
       fish_in_db.save
     end
   end
 end
 
-def is_a_disambiguation?(page)
-  Nokogiri::HTML(open(page)).content.include?("isambiguation")
+def grab_picture(page)
+  if page.css('.infobox img').length != 0
+    page.css(".infobox img")[0].attributes["src"].value.gsub(/^(\/)+/,'')
+  elsif page.css("#mw-content-text .thumb img").length != 0
+    page.css("#mw-content-text .thumb img").each do |thumb|
+      if thumb.attributes["width"].value.to_i > 150
+        return thumb.attributes["src"].value.gsub(/^(\/)+/,'')
+      end
+    end
+    nil
+  else
+    nil
+  end
 end
 
-def disambiguation(page)
-  page.css("#mw-content-text a")
+def is_a_disambiguation?(page)
+  Nokogiri::HTML(open(page)).content.include?("isambiguation")
 end
 
 Fish.delete_all
