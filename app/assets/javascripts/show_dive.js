@@ -1,14 +1,17 @@
 $('.dives.show').ready(function(){
 	$(".fancybox").fancybox();
 	
-	$(".image-container:last").hide();
+	$(".thumb:last").hide();
 
-	$("#fileupload").on("fileuploaddone", function (e, data) {
-    console.log("IS THIS WORKING???");
+	$(".uploader").bind("fileuploaddone", function (e, data) {
+    console.log("WORK PLEASE");
+    $(".fancybox").fancybox();    
+
 	});
 
-	$(".remove").click(function(e){
+	$(".remove-icon").click(function(e){
 		e.preventDefault();
+		console.log($(this).data('photo-id'));
 		$.ajax({
   		url: "/photos/" + $(this).data('photo-id'),
   		type: "post",
