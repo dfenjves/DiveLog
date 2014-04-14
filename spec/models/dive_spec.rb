@@ -36,16 +36,6 @@ describe Dive do
       expect(@dive.save).to be_false    
     end
 
-    it 'fails save without time_in' do
-      @dive.time_in = ""
-      expect(@dive.save).to be_false  
-    end
-
-    it 'fails save without time_out' do
-      @dive.time_out = ""
-      expect(@dive.save).to be_false  
-    end
-
     it 'fails save without date' do
       @dive.date = nil
       expect(@dive.save).to be_false  
@@ -57,39 +47,27 @@ describe Dive do
     end
 
     it 'successfully saves with blank temperature' do
-      @dive.temperature = ""
-      expect(@dive.save).to be_true
       @dive.temperature = nil
       expect(@dive.save).to be_true      
     end
 
     it 'successfully saves with blank depth' do
-      @dive.depth = ""
-      expect(@dive.save).to be_true
       @dive.depth = nil
       expect(@dive.save).to be_true      
     end    
 
     it 'successfully saves with blank start_air' do
-      @dive.start_air = ""
-      expect(@dive.save).to be_true
       @dive.start_air = nil
       expect(@dive.save).to be_true      
     end
 
-    it 'successfully saves with end_air' do
-      @dive.end_air = ""
-      expect(@dive.save).to be_true
+    it 'successfully saves with blank end_air' do
       @dive.end_air = nil
       expect(@dive.save).to be_true      
     end
 
-    it 'can return total time of dive in minutes' do
-      expect(@dive.total_time_in_minutes).to eq(2)
-    end
-
     it 'says that no notes were recorded if no notes were entered' do
-      @dive.notes = ""
+      @dive.notes = nil
       @dive.save
       expect(@dive.notes).to eq("No Notes Recorded")
     end

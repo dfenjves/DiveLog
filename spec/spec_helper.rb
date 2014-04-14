@@ -14,15 +14,19 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+Capybara.server_host= 'localhost'
+Capybara.server_port = 3000
+
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include BestInPlace::TestHelpers
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
   end
 
@@ -60,4 +64,21 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
 end
+
+def sign_in_facebook(name)
+  visit '/'
+  click_on('Sign In')
+  if page.has_content?('Facebook Login')
+    fill_in 'email', with: name[:email]
+    fill_in 'pass', with: name[:password]
+    uncheck :persistent
+    click_button('Log In')
+    if page.has_content?('divelog will receive')
+      click_on('Okay')
+    end
+  end
+  page.should have_content('welcome to divelog')
+  page.should_not have_content('Sign in with Facebook')  
+end  
