@@ -1,6 +1,6 @@
 class DivesController < ApplicationController
-
   before_action :set_dive, only: [:show, :edit, :update, :destroy]
+  autocomplete :fish, :name
 
   def index
     if logged_in?
@@ -14,6 +14,7 @@ class DivesController < ApplicationController
 
   def show
     @photo = @dive.photos.new
+    @fish = @dive.fish.new
   end
 
   def new
@@ -66,6 +67,10 @@ class DivesController < ApplicationController
     else
       redirect_to dive_path(@dive), :flash => { :error => "You can't delete someone else's dive!" }
     end
+  end
+
+  def add_fish
+    @fish = Fish.new
   end
 
   private

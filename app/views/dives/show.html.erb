@@ -78,7 +78,6 @@
         </div><!-- end gallery row -->
 
 
-        <br/>
         <div class="uploaderbutton">
           <div class="uploader">
           <%= form_for @photo, remote:true do |f| %>
@@ -91,10 +90,21 @@
 
     <div class="row fish">
       <div class="col-lg-12">
-          <h3 class="page-header">Fish Sightings</h3>
+        <h3 class="page-header">Fish Sightings</h3>
       </div>
-    </div><!-- end fish row -->
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <% @dive.fish.each do |fish|%>
+          <p><%= fish.name %></p>
+          <%= image_tag "http://#{fish.picture_link}", :alt => "" %>
+        <% end %>
+      </div>
 
+      <%= form_for @dive, url: {action: "add_fish"} do |f| %>
+        <%= label_tag :fish_name, "Fish Name:" %>
+        <%= text_field_tag :fish_name %>
+      <% end %>
+
+    </div><!-- end fish row -->
     </div>
   </div>
 </div>

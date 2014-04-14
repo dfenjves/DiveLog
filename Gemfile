@@ -30,6 +30,7 @@ gem 'koala'
 gem 'figaro', github: 'laserlemon/figaro'
 gem 'jquery-ui-rails'
 gem 'best_in_place', github: 'simtron/best_in_place'
+gem 'rails3-jquery-autocomplete'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

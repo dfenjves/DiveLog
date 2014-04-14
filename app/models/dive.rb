@@ -7,6 +7,7 @@ class Dive < ActiveRecord::Base
   has_many :photos
 
   accepts_nested_attributes_for :photos, :allow_destroy => true
+  accepts_nested_attributes_for :fish
 
   validates_presence_of :time_in, :time_out, :date, :dive_site
 
@@ -29,6 +30,10 @@ class Dive < ActiveRecord::Base
 
   def display_time_out
     time_out.strftime("%I:%M %p")
+  end
+
+  def fish_name
+    fish.try(:name)
   end
 
   protected

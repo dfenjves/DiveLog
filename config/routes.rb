@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   get '/dives' => 'dives#index'
   post '/dives' => 'dives#create'
   get '/dives/new' => 'dives#new', as: 'new_dive'
+  post '/dives/fish' => 'dives#add_fish'
   get '/dives/:id/edit' => 'dives#edit', as: 'edit_dive'
   get '/dives/:id' => 'dives#show', as: 'dive'
   put '/dives/:id' => 'dives#update'
+  get '/dives/autocomplete_fish_name', as: 'autocomplete_fish_name'
   patch '/dives/:id' => 'dives#update'
   delete '/dives/:id' => 'dives#destroy'
 
