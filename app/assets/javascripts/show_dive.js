@@ -4,7 +4,7 @@ $('.dives.show').ready(function(){
 	$(".image-container:last").hide();
 
 	$("#fileupload").on("fileuploaddone", function (e, data) {
-    console.log("fileuploaddone event fired");
+    console.log("IS THIS WORKING???");
 	});
 
 	$(".remove").click(function(e){
