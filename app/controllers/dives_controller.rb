@@ -34,7 +34,13 @@ class DivesController < ApplicationController
       @diver.dives << @dive
       redirect_to dive_path(@dive)
     else
-      render "new", :flash => { :error => "There was a problem with your submissions!" }
+      if dive_params[:dive_site] == ""
+        flash[:error] = "Please enter a dive site"
+        render "new"
+      else
+        flash[:error] = "Please enter a date"
+        render "new"
+      end
     end
  
   end

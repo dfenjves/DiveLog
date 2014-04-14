@@ -8,7 +8,7 @@ FactoryGirl.define do
     time_in "2014-04-08 10:10:29"
     time_out "2014-04-08 10:12:29"
     dive_site "Wisconsin"
-    visibility "clear"
+    visibility 100
     start_air 2
     end_air 1
     dive_type "boat"

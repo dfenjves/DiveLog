@@ -2,13 +2,12 @@
 	<div class="row text-center">
 		<p>
 			<%= f.label :date, "Date:" %>
-			<%= f.date_field :date%>
+			<%= f.date_field :date, required: true %>
 
 			<%= f.label :dive_site, "Dive Site:" %>
-			<%= f.text_field :dive_site%>
+			<%= f.text_field :dive_site, required: true %>
 		</p><br>
 	</div>
-
 	<div class="row">
 		<div class="col-md-6">
 			<p>
@@ -41,12 +40,12 @@
 
 			<p>
 				<%= f.label :dive_type, "Dive Type:" %>
-				<%= f.select :dive_type, [["Boat Dive", "boat"],["Beach Dive", "beach"],["Drift Dive", "drift"],["Night Dive", "Night"]] %>
+				<%= f.select :dive_type, [["—", nil], ["Boat Dive", "boat"],["Beach Dive", "beach"],["Drift Dive", "drift"],["Night Dive", "Night"]] %>
 			</p>
 
 			<p>
 				<%= f.label :dive_activity, "Dive Activity:" %>
-				<%= f.select :dive_activity, [["Wreck Dive", "wreck"],["Reef Dive", "reef"],["Cave Dive", "cave"],["Training Dive", "training"]] %>
+				<%= f.select :dive_activity, [["—", nil], ["Wreck Dive", "wreck"],["Reef Dive", "reef"],["Cave Dive", "cave"],["Training Dive", "training"]] %>
 			</p>
 
 			<p>
@@ -60,7 +59,7 @@
 			</p>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-md-6">
 			<%= f.text_area :notes, :placeholder => "Notes", :size => "50x10" %>		  	
@@ -78,7 +77,7 @@
 		
 	<div class="row">
   	<div class="span6" style="text-align:center">
-   	 <%= f.submit "Sumbit Dive!" %>
+   	 <%= f.submit "Submit Dive!" %>
   	</div>
 	</div>
 <% end %>

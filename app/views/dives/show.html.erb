@@ -18,12 +18,10 @@
           <%= best_in_place @dive, :date, type: :date, display_as: :display_date %>
         </h3>
         <h4 class="times">
-          From <%= best_in_place @dive, :time_in, display_as: :display_time_in %> to 
-          <%= best_in_place @dive, :time_out, display_as: :display_time_out %>
+          Time In: <%= best_in_place @dive, :time_in, display_as: :display_time_in %>
+          <br/> 
+          Time Out: <%= best_in_place @dive, :time_out, display_as: :display_time_out %>
           <br/>
-          <!--<span class="length-of-time">
-            <%= @dive.total_time_in_minutes %>
-          </span> Minutes Long -->
         </h4>
         <% @dive.divers.each do |d| %>
           <%= link_to((image_tag d.image), d) %>
@@ -31,9 +29,9 @@
       </div>
       <div class="col-md-6 change-units">
         <p>
-          Dive Type: <%= best_in_place @dive, :dive_type, type: :select, collection: [["boat", "Boat Dive"], ["beach", "Beach Dive"], ["drift", "Drift Dive"], ["night", "Night Dive"]] %>
+          Dive Type: <%= best_in_place @dive, :dive_type, type: :select, collection: [["", "—"], ["boat", "Boat Dive"], ["beach", "Beach Dive"], ["drift", "Drift Dive"], ["night", "Night Dive"]] %>
           <br/>   
-          Dive Activity: <%= best_in_place @dive, :dive_activity, type: :select, collection: [["wreck", "Wreck Dive"], ["reef", "Reef Dive"], ["cave", "Cave Dive"], ["training", "Training Dive"]] %>
+          Dive Activity: <%= best_in_place @dive, :dive_activity, type: :select, collection: [["", "—"], ["wreck", "Wreck Dive"], ["reef", "Reef Dive"], ["cave", "Cave Dive"], ["training", "Training Dive"]] %>
           <br/>        
           Maximum Depth: <%= best_in_place @dive, :depth, type: :input %>
           <%= content_tag :span, " meters", class: 'depth' %>
