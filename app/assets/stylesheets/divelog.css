@@ -49,3 +49,7 @@ a.fancybox span.remove-icon{
 a.fancybox:hover span.remove-icon{
 	visibility:visible;
 }
+
+.fish-thumb {
+	height: 230px;
+}
