@@ -53,6 +53,17 @@ body {
   height: 151px;
 }
 
+#recentdives {
+  background-color: #ffc;
+  border:1px solid;
+  border-radius:10px;  
+}
+
+#recentdives-list {
+  list-style-type: none;
+  text-align: center;
+}
+
 .toscroll {
   height:500px;
   overflow-y: scroll;

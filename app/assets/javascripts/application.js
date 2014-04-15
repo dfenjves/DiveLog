@@ -40,6 +40,10 @@ jQuery(document).ready(function($) {
 
   changeUnits();
 
+  $(function() {
+    $('#recentdives').vTicker();
+  });
+
   $('.change-units').submit( function(e) {
     changeUnits();
   });
