@@ -104,10 +104,11 @@
         </div>
       <% end %>
     </div>
-
-    <% @dive.fish.each do |fish| %>
-      <p><%= fish.name %></p>
-    <% end %>
+    <div id="fish">
+      <% @dive.fish.each do |fish| %>
+        <p><%= fish.name %></p>
+      <% end %>
+    </div>
     
   </div>
 </div>

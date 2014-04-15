@@ -79,6 +79,7 @@ class DivesController < ApplicationController
     @fish = Fish.find_by(:name => params[:name])
     @dive = Dive.find(params[:id])
     @dive.fish << @fish
+    render "addfish"
   end
 
   private
