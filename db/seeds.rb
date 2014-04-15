@@ -50,7 +50,7 @@ def replace_nils
   Fish.all.each do |fish|
     next if fish.picture_link != nil
     puts "Photo for #{fish.name} not found"
-    fish.picture_link = "http://bestclipartblog.com/clipart-pics/fish-clip-art-1.gif"
+    fish.picture_link = "www.fws.gov/natchitoches/images/coloring%20pages/fish.1.coloring.sheet.gif"
     fish.save
   end
 end
