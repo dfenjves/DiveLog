@@ -43,13 +43,15 @@ $('.dives.show').ready(function(){
 			$.each(dive_fish, function(i, fish) {
 
 				var this_fish =  '<div class="col-md-6">'+
-						          '<div class="thumbnail">'+
-						            '<img src="http://'+fish.picture_link+'">'+
-						             '<div class="caption">'+
-						              '<h3>'+fish.name+'</h3>'+
-						            '</div>'+
-						          '</div>'+
-						        '</div>';
+													'<a href='+fish.wiki_link+'>'+
+									          '<div class="thumbnail">'+
+									            '<img src="http://'+fish.picture_link+'">'+
+									             '<div class="caption">'+
+									              '<h3>'+fish.name+'</h3>'+
+									            '</div>'+
+									          '</div>'+
+									          '</a>'+
+								        '</div>';
 
 				$('#fish').append(this_fish);
 			});
