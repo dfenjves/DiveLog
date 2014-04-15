@@ -22,4 +22,33 @@ $('.dives.show').ready(function(){
 
 	});
 
+	$('#fish_search').submit(function(event){
+
+		event.preventDefault(); //prevent form submit
+
+		var id = $('#fish_search').data('id');
+		var fish_name = $('#name').val();
+
+		$.post('/dives/'+id+'/fish', {name: fish_name}, function(dive_fish){
+			console.log(dive_fish);
+
+			$('#fish').empty();
+			$.each(dive_fish, function(i, fish) {
+
+				var this_fish =  '<div class="col-sm-6 col-md-4">'+
+						          '<div class="thumbnail">'+
+						            '<img src="http://'+fish.picture_link+'">'+
+						             '<div class="caption">'+
+						              '<h3>'+fish.name+'</h3>'+
+						            '</div>'+
+						          '</div>'+
+						        '</div>';
+
+				$('#fish').append(this_fish);
+			});
+
+		});
+
+	});
+
 });

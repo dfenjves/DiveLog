@@ -8,7 +8,7 @@
 <script>
   $(function() {
     var availableTags = <%= raw(Fish.all.collect { |fish| "#{fish.name}" }) %>;
-    $( "#tags" ).autocomplete({
+    $( "#name" ).autocomplete({
       source: availableTags
     });
   });
@@ -96,17 +96,25 @@
           Notes: <%= best_in_place @dive, :notes, type: :textarea %>
         </p>
       </div>
-      <%= form_tag "/dives/#{@dive.id}/fish", remote:true do %>
+      <%= form_tag "#", id: "fish_search", data:{id: @dive.id }, remote:true do %>
         <div class="ui-widget">
-          <label for="tags">Fish Name: </label>
-          <input id="tags" name="name">
+          <label for="name">Fish Name: </label>
+          <input id="name" name="name">
           <%= submit_tag "Add Fish" %>
         </div>
       <% end %>
     </div>
+
     <div id="fish">
       <% @dive.fish.each do |fish| %>
-        <p><%= fish.name %></p>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <%= image_tag "http://#{fish.picture_link}" %>
+            <div class="caption">
+              <h3><%= fish.name %></h3>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
     
