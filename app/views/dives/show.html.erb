@@ -4,7 +4,15 @@
     <div class="progress"><div class="bar" style="width: 0%"></div></div>
   </div>
 </script>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script>
+  $(function() {
+    var availableTags = <%= raw(Fish.all.collect { |fish| "#{fish.name}" }) %>;
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  });
+</script>
 <div class="panel panel-default">
   <div class="panel-body">
     <h2 class="text-center">A dive at <%= best_in_place @dive, :dive_site, type: :input %></h2>
@@ -87,6 +95,10 @@
         <p>
           Notes: <%= best_in_place @dive, :notes, type: :textarea %>
         </p>
+      </div>
+      <div class="ui-widget">
+        <label for="tags">Tags: </label>
+        <input id="tags">
       </div>
     </div>
   </div>
