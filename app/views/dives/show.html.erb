@@ -4,15 +4,7 @@
     <div class="progress"><div class="bar" style="width: 0%"></div></div>
   </div>
 </script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-<script>
-  $(function() {
-    var availableTags = <%= raw(Fish.all.collect { |fish| "#{fish.name}" }) %>;
-    $( "#name" ).autocomplete({
-      source: availableTags
-    });
-  });
-</script>
+
 <div class="panel panel-default toscroll">
   <div class="panel-body">
     <h2 class="text-center">A dive at <%= best_in_place @dive, :dive_site, type: :input %></h2>
@@ -20,51 +12,7 @@
       <%= link_to "Delete Dive", dive_path(@dive), :method => :delete, class: 'btn btn-warning text-center' %>
     </div>    
     <div class="row">
-      <div class="col-md-4">
-        <h3>
-          <%= best_in_place @dive, :date, type: :date, display_as: :display_date %>
-        </h3>
-        <h4 class="times">
-          Time In: <%= best_in_place @dive, :time_in, display_as: :display_time_in %>
-          <br/> 
-          Time Out: <%= best_in_place @dive, :time_out, display_as: :display_time_out %>
-          <br/>
-        </h4>
-        <% @dive.divers.each do |d| %>
-          <%= link_to((image_tag d.image), d) %>
-        <% end %>
-      </div>
-      <div class="col-md-4 change-units">
-        <p>
-          Dive Type: <%= best_in_place @dive, :dive_type, type: :select, collection: [["", "—"], ["boat", "Boat Dive"], ["beach", "Beach Dive"], ["drift", "Drift Dive"], ["night", "Night Dive"]] %>
-          <br/>   
-          Dive Activity: <%= best_in_place @dive, :dive_activity, type: :select, collection: [["", "—"], ["wreck", "Wreck Dive"], ["reef", "Reef Dive"], ["cave", "Cave Dive"], ["training", "Training Dive"]] %>
-          <br/>        
-          Maximum Depth: <%= best_in_place @dive, :depth, type: :input %>
-          <%= content_tag :span, " meters", class: 'depth' %>
-          <br/>
-          Water Temperature: <%= best_in_place @dive, :temperature, type: :input %>
-          <%= content_tag :span, " °C", class: 'temperature' %>
-          <br/>
-          Visibility: <%= best_in_place @dive, :visibility, type: :input %>
-          <%= content_tag :span, " meters", class: 'visibility' %>
-          <br/>
-          Conditions: <%= best_in_place @dive, :conditions, type: :input %>
-          <br/>                         
-          Starting Air: <%= best_in_place @dive, :start_air, type: :input %>
-          <%= content_tag :span, " bar", class: 'start_air' %>
-          <br/>
-          Ending Air: <%= best_in_place @dive, :end_air, type: :input %>
-          <%= content_tag :span, " bar", class: 'end_air' %>
-          <br/>
-          Wetsuit? <%= best_in_place @dive, :wetsuit, type: :checkbox, collection: %w[No Yes] %>
-        </p>
-      </div>
-      <div class="col-md-4 change-units">
-        <p>
-          Notes: <%= best_in_place @dive, :notes, type: :textarea %>
-        </p>
-      </div>
+      <%= render 'dive_details' %>
     </div>
 
       <div class="row">
@@ -78,36 +26,7 @@
 
       </div><!-- end gallery row -->
 
-      <div class="row gallery">
-        <div class="col-md-6">
-          <% @dive.photos.each do |photo| %>
-            <div class="col-md-6 thumb">
-              <a class="fancybox" rel="group" href="<%= photo.image_url %>">
-                <span class="remove-icon" data-photo-id="<%= photo.id %>"><%= image_tag("/remove.png",  height: '16', width: '16') %></span>
-                <img class="image-thumb thumbnail" src="<%= photo.image_url(:thumb) %>"  alt="" />
-              </a>
-            </div>
-          <% end %>      
-        </div>
-        <div class="col-md-6">
-          <div id="fish">
-            <% @dive.fish.each do |fish| %>
-              <div class="col-md-6">
-                <div class="thumbnail">
-                  <%= image_tag "http://#{fish.picture_link}" %>
-                  <div class="caption">
-                    <h3><%= fish.name %></h3>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
-
-      <br/>
-      <div class="row">
+      <div class="row"> <!-- search fish and add photo buttons -->
         <div class="col-md-6">
           <div class="uploaderbutton">
             <div class="uploader">
@@ -129,7 +48,20 @@
             </div>
           <% end %>
         </div>
+      </div> <!-- end search and photo buttons -->
+
+      <div class="row gallery">
+        <div class="col-md-6">
+          <%= render 'dive_photos' %>     
+        </div>
+
+        <div class="col-md-6">
+          <div id="fish">
+            <%= render 'fishes' %>
+          </div>
+        </div>
       </div>
+     
     </div>
   </div>
 </div>

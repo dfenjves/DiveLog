@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 </head>
 <body class ="<%= controller_name %> <%= action_name %>">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">

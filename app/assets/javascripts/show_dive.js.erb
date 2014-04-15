@@ -9,6 +9,13 @@ $('.dives.show').ready(function(){
 
 	});
 
+	//Autocomlete:
+  var availableTags = <%= (Fish.all.collect { |fish| "#{fish.name}" }) %>;
+  $( "#name" ).autocomplete({
+    source: availableTags
+  });
+  //End autocomplete
+
 	$(".remove-icon").click(function(e){
 		e.preventDefault();
 		console.log($(this).data('photo-id'));
