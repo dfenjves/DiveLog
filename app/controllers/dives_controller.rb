@@ -88,7 +88,8 @@ class DivesController < ApplicationController
     @diver = Diver.find_by(name: params[:name])
     @dive = Dive.find(params[:id])
     @dive.divers << @diver if !@dive.divers.include?(@diver)
-    render :json => @dive.divers  
+    render :json => @dive.divers
+  end
 
   def removefish
     @dive = Dive.find(params[:id])
@@ -113,4 +114,5 @@ class DivesController < ApplicationController
     params.require(:dive).permit(:date, :depth, :temperature, :time_in, :time_out, :dive_site, :visibility, :start_air,
       :end_air, :dive_type, :dive_activity, :wetsuit, :conditions, :notes)
   end
+
 end
