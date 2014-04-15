@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   put '/dives/:id' => 'dives#update'
   patch '/dives/:id' => 'dives#update'
   delete '/dives/:id' => 'dives#destroy'
+  post '/dives/:id/fish' => 'dives#addfish'
 
   get '/divers/:id' => 'divers#show', as: 'diver'
 
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   root 'root#index'
+
 # The priority is based upon order of creation: first created -> highest priority.
 # See how all your routes lay out with "rake routes".
 

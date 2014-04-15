@@ -14,6 +14,7 @@ class DivesController < ApplicationController
 
   def show
     @photo = @dive.photos.new
+    @fish = Fish.new
   end
 
   def new
@@ -72,6 +73,12 @@ class DivesController < ApplicationController
     else
       redirect_to dive_path(@dive), :flash => { :error => "You can't delete someone else's dive!" }
     end
+  end
+
+  def addfish
+    @fish = Fish.find_by(:name => params[:name])
+    @dive = Dive.find(params[:id])
+    @dive.fish << @fish
   end
 
   private
