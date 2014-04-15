@@ -71,6 +71,19 @@ describe Dive do
       @dive.save
       expect(@dive.notes).to eq("No Notes Recorded")
     end
+
+    it 'fails save when start time is later than end time' do
+      @dive.time_in = "2000-01-01 13:03:00"
+      @dive.time_out = "2000-01-01 13:02:00"
+      expect(@dive.save).to be_false
+    end
+
+    it 'successfully saves when start time is before end time' do
+      @dive.time_in = "2000-01-01 13:03:00"
+      @dive.time_out = "2000-01-01 13:04:00"
+      expect(@dive.save).to be_true
+    end
+
   end
 
   describe 'associations' do
