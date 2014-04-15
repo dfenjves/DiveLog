@@ -10,7 +10,8 @@
     <h2 class="text-center">A dive at <%= best_in_place @dive, :dive_site, type: :input %></h2>
     <div class="text-center">
       <%= link_to "Delete Dive", dive_path(@dive), :method => :delete, class: 'btn btn-warning text-center' %>
-    </div>    
+    </div>
+    
     <div class="row">
       <%= render 'dive_details' %>
     </div>
