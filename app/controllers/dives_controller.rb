@@ -77,10 +77,21 @@ class DivesController < ApplicationController
 
   def addfish
     @fish = Fish.find_by(:name => params[:name])
+
     @dive = Dive.find(params[:id])
     @dive.fish << @fish
     #render "addfish"
     render :json => @dive.fish
+  end
+
+  def removefish
+    @dive = Dive.find(params[:id])
+    @fish = Fish.find(params[:fish_id])
+    @dive_fish = DiveFish.find_by(:dive_id => @dive.id, :fish_id => @fish.id)
+    @dive_fish.destroy
+    respond_to do |format|
+      format.json { head :ok }
+    end
   end
 
   private

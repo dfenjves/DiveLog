@@ -2,6 +2,7 @@
   <div class="col-md-6">
     <a href = "<%= fish.wiki_link %>">
 	    <div class="thumbnail fish-thumb">
+	    	<button class="btn fish-remove" data-fish-id=<%= fish.id %>, data-dive-id=<%= @dive.id %>>X</button>
 	      <%= image_tag "http://#{fish.picture_link}" %>
 	      <div class="caption">
 	      	<% if fish.name.length <= 13 %>

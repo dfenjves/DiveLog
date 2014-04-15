@@ -18,7 +18,6 @@ $('.dives.show').ready(function(){
 
 	$(".remove-icon").click(function(e){
 		e.preventDefault();
-		console.log($(this).data('photo-id'));
 		$.ajax({
   		url: "/photos/" + $(this).data('photo-id'),
   		type: "post",
@@ -60,4 +59,17 @@ $('.dives.show').ready(function(){
 
 	});
 
+	$(".fish-remove").click(function(event){
+		event.preventDefault();
+		var id = $(this).data('dive-id');
+		var fish_id = $(this).data('fish-id');
+
+		$.ajax({
+			url: '/dives/'+id+'/fish/'+fish_id,
+    	type: 'DELETE',
+    	success: function() {
+        	$(this).closest(".thumbnail").remove();
+				}
+    });
+	});
 });

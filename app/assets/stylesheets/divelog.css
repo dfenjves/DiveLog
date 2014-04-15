@@ -53,3 +53,16 @@ a.fancybox:hover span.remove-icon{
 .fish-thumb {
 	height: 230px;
 }
+
+.fish-remove {
+	visibility: hidden;
+	position:absolute;
+	top:5px;
+	right:20px;
+	margin:0;
+	padding:5px 3px;
+}
+
+.fish-thumb:hover .fish-remove{
+	visibility: visible;
+}
