@@ -13,11 +13,10 @@
     });
   });
 </script>
-<div class="panel panel-default">
+<div class="panel panel-default toscroll">
   <div class="panel-body">
     <h2 class="text-center">A dive at <%= best_in_place @dive, :dive_site, type: :input %></h2>
     <div class="text-center">
-      <%= link_to "Edit Dive", edit_dive_path(@dive), class: 'btn btn-info text-center' %>
       <%= link_to "Delete Dive", dive_path(@dive), :method => :delete, class: 'btn btn-warning text-center' %>
     </div>    
     <div class="row">
