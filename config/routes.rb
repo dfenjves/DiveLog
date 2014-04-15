@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   patch '/dives/:id' => 'dives#update'
   delete '/dives/:id' => 'dives#destroy'
   post '/dives/:id/fish' => 'dives#addfish'
+  post '/dives/:id/diver' => 'dives#adddiver'
 
   get '/divers/:id' => 'divers#show', as: 'diver'
 

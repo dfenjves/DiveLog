@@ -78,9 +78,15 @@ class DivesController < ApplicationController
   def addfish
     @fish = Fish.find_by(:name => params[:name])
     @dive = Dive.find(params[:id])
-    @dive.fish << @fish
-    #render "addfish"
+    @dive.fish << @fish if !@dive.fish.include?(@fish)
     render :json => @dive.fish
+  end
+
+  def adddiver
+    @diver = Diver.find_by(name: params[:name])
+    @dive = Dive.find(params[:id])
+    @dive.divers << @diver if !@dive.divers.include?(@diver)
+    render :json => @dive.divers  
   end
 
   private

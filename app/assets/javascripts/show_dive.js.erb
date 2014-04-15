@@ -10,10 +10,14 @@ $('.dives.show').ready(function(){
 	});
 
 	//Autocomlete:
-  var availableTags = <%= (Fish.all.collect { |fish| "#{fish.name}" }) %>;
+  var availableTags_fish = <%= (Fish.all.collect { |fish| "#{fish.name}" }) %>;
   $( "#name" ).autocomplete({
-    source: availableTags
+    source: availableTags_fish
   });
+  var availableTags_divers = <%= (Diver.all.collect { |diver| "#{diver.name}" }) %>;
+  $( "#diver_name" ).autocomplete({
+    source: availableTags_divers
+  });  
   //End autocomplete
 
 	$(".remove-icon").click(function(e){
@@ -37,8 +41,6 @@ $('.dives.show').ready(function(){
 		var fish_name = $('#name').val();
 
 		$.post('/dives/'+id+'/fish', {name: fish_name}, function(dive_fish){
-			console.log(dive_fish);
-
 			$('#fish').empty();
 			$.each(dive_fish, function(i, fish) {
 
@@ -59,5 +61,27 @@ $('.dives.show').ready(function(){
 		});
 
 	});
+
+$('#diver_search').submit(function(event){
+
+    event.preventDefault(); //prevent form submit
+
+    var id = $('#diver_search').data('id');
+    var diver_name = $('#diver_name').val();
+
+    $.post('/dives/'+id+'/diver', {name: diver_name}, function(diver_dive){
+     $('#divers').empty();
+      $.each(diver_dive, function(i, diver) {
+
+        var this_diver =  '<a href="/divers/'+diver.id+'">'+
+                        '<img src="'+diver.image+'">'+
+                      '</a>';
+
+        $('#divers').append(this_diver);
+      });
+
+    });
+
+  });  
 
 });
