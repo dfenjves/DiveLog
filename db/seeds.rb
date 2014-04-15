@@ -46,10 +46,19 @@ def grab_picture(page)
   end
 end
 
+def replace_nils
+  Fish.all.each do |fish|
+    next if fish.picture_link != nil
+    puts "Photo for #{fish.name} not found"
+    fish.picture_link = "http://bestclipartblog.com/clipart-pics/fish-clip-art-1.gif"
+    fish.save
+  end
+end
+
 def is_a_disambiguation?(page)
   Nokogiri::HTML(open(page)).content.include?("isambiguation")
 end
 
 Fish.delete_all
 scrape
-
+replace_nils

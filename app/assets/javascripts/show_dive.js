@@ -35,7 +35,7 @@ $('.dives.show').ready(function(){
 			$('#fish').empty();
 			$.each(dive_fish, function(i, fish) {
 
-				var this_fish =  '<div class="col-sm-6 col-md-4">'+
+				var this_fish =  '<div class="col-md-6">'+
 						          '<div class="thumbnail">'+
 						            '<img src="http://'+fish.picture_link+'">'+
 						             '<div class="caption">'+

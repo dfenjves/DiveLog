@@ -20,7 +20,7 @@
       <%= link_to "Delete Dive", dive_path(@dive), :method => :delete, class: 'btn btn-warning text-center' %>
     </div>    
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <h3>
           <%= best_in_place @dive, :date, type: :date, display_as: :display_date %>
         </h3>
@@ -34,7 +34,7 @@
           <%= link_to((image_tag d.image), d) %>
         <% end %>
       </div>
-      <div class="col-md-6 change-units">
+      <div class="col-md-4 change-units">
         <p>
           Dive Type: <%= best_in_place @dive, :dive_type, type: :select, collection: [["", "—"], ["boat", "Boat Dive"], ["beach", "Beach Dive"], ["drift", "Drift Dive"], ["night", "Night Dive"]] %>
           <br/>   
@@ -60,62 +60,76 @@
           Wetsuit? <%= best_in_place @dive, :wetsuit, type: :checkbox, collection: %w[No Yes] %>
         </p>
       </div>
-    </div>
-
-        <div class="row gallery">
-
-            <div class="col-lg-12">
-                <h3 class="page-header">Photos</h3>
-            </div>
-
-            <% @dive.photos.each do |photo| %>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="fancybox" rel="group" href="<%= photo.image_url %>">
-                  <span class="remove-icon" data-photo-id="<%= photo.id %>"><%= image_tag("/remove.png",  height: '16', width: '16') %></span>
-                  <img class="image-thumb thumbnail" src="<%= photo.image_url(:thumb) %>"  alt="" />
-                </a>
-            </div>
-            <% end %>
-        </div><!-- end gallery row -->
-
-
-        <br/>
-        <div class="uploaderbutton">
-          <div class="uploader">
-          <%= form_for @photo, remote:true do |f| %>
-            <%= f.hidden_field :dive_id, :value => @dive.id %>
-            <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
-          <% end %>
-          </div>
-          <button class = "btn btn-success fileinput-button">Upload a Photo</button>
-        </div>
-
-      <div class="col-md-6">
+      <div class="col-md-4 change-units">
         <p>
           Notes: <%= best_in_place @dive, :notes, type: :textarea %>
         </p>
       </div>
-      <%= form_tag "#", id: "fish_search", data:{id: @dive.id }, remote:true do %>
-        <div class="ui-widget">
-          <label for="name">Fish Name: </label>
-          <input id="name" name="name">
-          <%= submit_tag "Add Fish" %>
-        </div>
-      <% end %>
     </div>
 
-    <div id="fish">
-      <% @dive.fish.each do |fish| %>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <%= image_tag "http://#{fish.picture_link}" %>
-            <div class="caption">
-              <h3><%= fish.name %></h3>
+      <div class="row">
+
+        <div class="col-md-6">
+            <h3 class="page-header text-center">Photos from Dive</h3>
+        </div>
+        <div class="col-md-6">
+            <h3 class="page-header text-center">Fish Seen</h3>
+        </div>
+
+      </div><!-- end gallery row -->
+
+      <div class="row gallery">
+        <div class="col-md-6">
+          <% @dive.photos.each do |photo| %>
+            <div class="col-md-6 thumb">
+              <a class="fancybox" rel="group" href="<%= photo.image_url %>">
+                <span class="remove-icon" data-photo-id="<%= photo.id %>"><%= image_tag("/remove.png",  height: '16', width: '16') %></span>
+                <img class="image-thumb thumbnail" src="<%= photo.image_url(:thumb) %>"  alt="" />
+              </a>
             </div>
+          <% end %>      
+        </div>
+        <div class="col-md-6">
+          <div id="fish">
+            <% @dive.fish.each do |fish| %>
+              <div class="col-md-6">
+                <div class="thumbnail">
+                  <%= image_tag "http://#{fish.picture_link}" %>
+                  <div class="caption">
+                    <h3><%= fish.name %></h3>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
-      <% end %>
+      </div>
+
+
+      <br/>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="uploaderbutton">
+            <div class="uploader">
+            <%= form_for @photo, remote:true do |f| %>
+              <%= f.hidden_field :dive_id, :value => @dive.id %>
+              <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
+            <% end %>
+            </div>
+            <button class = "btn btn-success fileinput-button">Upload a Photo</button>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <%= form_tag "#", id: "fish_search", data:{id: @dive.id }, remote:true do %>
+            <div class="ui-widget">
+              <label for="name">Fish Name: </label>
+              <input id="name" name="name">
+              <%= submit_tag "Add Fish" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    
   </div>
 </div>
