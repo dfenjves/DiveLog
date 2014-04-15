@@ -26,6 +26,9 @@ def scrape
         end
       end
       fish_in_db.wiki_link = one_fish_page
+      if fish_in_db.picture_link == nil || fish_in_db.picture_link.include?("Status")
+        fish_in_db.picture_link = "www.fws.gov/natchitoches/images/coloring%20pages/fish.1.coloring.sheet.gif"
+      end
       fish_in_db.save
     end
   end
@@ -46,19 +49,9 @@ def grab_picture(page)
   end
 end
 
-def replace_nils
-  Fish.all.each do |fish|
-    next if fish.picture_link != nil
-    puts "Photo for #{fish.name} not found"
-    fish.picture_link = "www.fws.gov/natchitoches/images/coloring%20pages/fish.1.coloring.sheet.gif"
-    fish.save
-  end
-end
-
 def is_a_disambiguation?(page)
   Nokogiri::HTML(open(page)).content.include?("isambiguation")
 end
 
 Fish.delete_all
 scrape
-replace_nils
