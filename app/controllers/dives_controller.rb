@@ -89,9 +89,7 @@ class DivesController < ApplicationController
     @fish = Fish.find(params[:fish_id])
     @dive_fish = DiveFish.find_by(:dive_id => @dive.id, :fish_id => @fish.id)
     @dive_fish.destroy
-    respond_to do |format|
-      format.json { head :ok }
-    end
+    render :json => { :head => :ok }
   end
 
   private

@@ -43,7 +43,8 @@ $('.dives.show').ready(function(){
 
 				var this_fish =  '<div class="col-md-6">'+
 													'<a href='+fish.wiki_link+'>'+
-									          '<div class="thumbnail">'+
+									          '<div class="thumbnail fish-thumb">'+
+									          	'<button class="btn fish-remove" data-fish-id="'+ fish.id + '"data-dive-id='+ id +'>X</button>'+
 									            '<img src="http://'+fish.picture_link+'">'+
 									             '<div class="caption">'+
 									              '<h3>'+fish.name+'</h3>'+
@@ -59,17 +60,23 @@ $('.dives.show').ready(function(){
 
 	});
 
-	$(".fish-remove").click(function(event){
+	$("#fish").on("click", ".fish-remove", function(event){
 		event.preventDefault();
 		var id = $(this).data('dive-id');
 		var fish_id = $(this).data('fish-id');
+		var currentX = $(this);
+
 
 		$.ajax({
 			url: '/dives/'+id+'/fish/'+fish_id,
-    	type: 'DELETE',
-    	success: function() {
-        	$(this).closest(".thumbnail").remove();
-				}
+    	type: 'POST',
+    	data: {"_method":"delete"},
+    	success: function(event){
+    		console.log("Is this working?")
+    		currentX.closest(".thumbnail").remove();
+    	}
     });
+
+
 	});
 });
