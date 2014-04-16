@@ -43,8 +43,8 @@ button .fileinput-button {
 	padding:5px 3px;
 }
 
-a:hover .photo-remove {
-		visibility: visible;
+.thumb:hover .photo-remove {
+	visibility: visible;
 }
 
 .fish-thumb {

@@ -1,8 +1,6 @@
 <% if authorized_diver(@dive) %>
   <script id="template-upload" type="text/x-tmpl">
     <div class="upload">
-      {%=o.name%}
-      <div class="progress"><div class="bar" style="width: 0%"></div></div>
     </div>
   </script>
 <% end %>
@@ -48,11 +46,13 @@
                 <div class="uploader">
                   <%= form_for @photo, remote:true do |f| %>
                     <%= f.hidden_field :dive_id, :value => @dive.id %>
-                    <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
+                    <%= f.file_field :image, :multiple => true, name:"photo[image]" %>
                   <% end %>
                 </div>
                 <button class="btn btn-success fileinput-button">Upload a Photo</button>
               <% end %>
+            </br>
+            </br>
             </div>
             <div class="row gallery dive-photos">
               <%= render 'dive_photos' %>     
