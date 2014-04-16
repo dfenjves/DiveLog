@@ -5,11 +5,7 @@
 	    	<button class="btn fish-remove" data-fish-id=<%= fish.id %>, data-dive-id=<%= @dive.id %>>X</button>
 	      <%= image_tag "http://#{fish.picture_link}" %>
 	      <div class="caption">
-	      	<% if fish.name.length <= 13 %>
-	        	<h3><%= fish.name %></h3>
-	        <% else %>
-	        	<h5><%= fish.name %></h5>
-	        <% end %>
+	        	<h4><%= fish.name %></h4>
 	      </div>
 	    </div>
 	  </a>

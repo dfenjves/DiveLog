@@ -49,7 +49,7 @@ $('.dives.show').ready(function(){
 									          	'<button class="btn fish-remove" data-fish-id="'+ fish.id + '"data-dive-id='+ id +'>X</button>'+
 									            '<img src="http://'+fish.picture_link+'">'+
 									             '<div class="caption">'+
-									              '<h3>'+fish.name+'</h3>'+
+									              '<h4>'+fish.name+'</h4>'+
 									            '</div>'+
 									          '</div>'+
 									          '</a>'+
@@ -97,7 +97,6 @@ $('#diver_search').submit(function(event){
     	type: 'POST',
     	data: {"_method":"delete"},
     	success: function(event){
-    		console.log("Is this working?")
     		currentX.closest(".thumbnail").remove();
     	}
     });
