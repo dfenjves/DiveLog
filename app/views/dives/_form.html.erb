@@ -12,11 +12,11 @@
 		<div class="col-md-6">
 			<p>
 				<%= f.label :depth, "Maximum Depth:" %>
-				<%= f.number_field :depth%>
+				<%= f.number_field :depth%> meters
 			</p>
 			<p>
 				<%= f.label :temperature, "Water Temperature:" %>
-				<%= f.number_field :temperature%>
+				<%= f.number_field :temperature%> °C
 			</p>
 			<p>
 				<%= f.label :time_in, "Time In:" %>
@@ -26,16 +26,17 @@
 			</p>
 			<p>
 				<%= f.label :visibility, "Visibility:" %>
-				<%= f.number_field :visibility%>
+				<%= f.number_field :visibility%> meters
 			</p>
 		</div>
 		<div class="col-md-6">
 			<p>
 				<%= f.label :start_air, "Start Air:" %>
-				<%= f.number_field :start_air%>
-
+				<%= f.number_field :start_air%> bar
+			</p>
+			<p>
 				<%= f.label :end_air, "End Air:" %>
-				<%= f.number_field :end_air%>
+				<%= f.number_field :end_air%> bar
 			</p>
 
 			<p>
