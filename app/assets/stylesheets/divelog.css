@@ -12,6 +12,10 @@ input {
 	background-color: grey;
 }
 
+.uploaderbutton {
+	position: relative;
+}
+
 .uploader {
 	opacity: 0;
 	cursor:pointer;
@@ -23,10 +27,6 @@ input {
 button .fileinput-button {
 	position: relative;
 	z-index: -1;
-}
-
-.uploaderbutton {
-	position: relative;
 }
 
 .best_in_place:hover {
