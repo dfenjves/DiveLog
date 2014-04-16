@@ -22,13 +22,17 @@
 <br/>
 <br/>
 <br/>
-<div class="col-md-4"></div>
-<div class="col-md-4" id="recentdives">
-  <ul id="recentdives-list">
-    <% Dive.order(id: :desc).limit(10).each do |dive| %>
-      <li><%= link_to dive.divers.first.name, dive.divers.first %>: 
-        <%= link_to dive.dive_site, dive %> on <%= dive.display_date %></li>
-    <% end %>
-  </ul>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div id="recentdives">
+      <ul id="recentdives-list">
+        <% Dive.order(id: :desc).limit(10).each do |dive| %>
+          <li><%= link_to dive.divers.first.name, dive.divers.first %> dived 
+            <%= link_to dive.dive_site, dive %> on <%= dive.display_date %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
 </div>
-<div class="col-md-4"></div>

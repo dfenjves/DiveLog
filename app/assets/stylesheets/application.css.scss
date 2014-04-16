@@ -33,6 +33,11 @@ body {
   margin-bottom: 20px;
 }
 
+.navbar {
+  background-color: #243743;
+  border: 0;
+}
+
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
@@ -54,14 +59,27 @@ body {
 }
 
 #recentdives {
-  background-color: #ffc;
-  border:1px solid;
-  border-radius:10px;  
+  background-color: #243743;
+  border-radius: 5px;
+  text-align:center;
+  color: #FAFAFA;
+  opacity: .7;
+  font-size: 20px;
+}
+
+#recentdives a:link{
+  color: #87DDC4;
 }
 
 #recentdives-list {
+  left: 1%;
+  right: 1%;
+}
+
+#recentdives-list li{
   list-style-type: none;
-  text-align: center;
+  margin: 0px auto;
+  /*text-indent: 25px;*/
 }
 
 .toscroll {
