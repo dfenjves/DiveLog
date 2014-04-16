@@ -40,9 +40,9 @@ jQuery(document).ready(function($) {
 
   changeUnits();
 
-  $(function() {
+  if ($('#recentdives').length > 0) {
     $('#recentdives').vTicker();
-  });
+  }
 
   $('.change-units').submit( function(e) {
     changeUnits();
