@@ -63,3 +63,19 @@ button .fileinput-button {
 .fish-thumb:hover .fish-remove{
 	visibility: visible;
 }
+
+.diver-thumb {
+
+}
+
+.diver-remove {
+	display: inline-block;
+	visibility: hidden;
+	position:absolute;
+	left:60px;
+	bottom:-5px;
+}
+
+.diver-thumb:hover .diver-remove {
+	visibility: visible;
+}

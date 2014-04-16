@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/dives/:id/fish' => 'dives#addfish'
 
   post '/dives/:id/diver' => 'dives#adddiver'
+  delete '/dives/:id/diver/:diver_id' => 'dives#removediver'
 
   get '/divers/:id' => 'divers#show', as: 'diver'
 

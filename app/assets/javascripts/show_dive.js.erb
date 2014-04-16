@@ -105,7 +105,25 @@ $('#diver_search').submit(function(event){
     		currentX.closest(".thumbnail").remove();
     	}
     });
-
-
 	});
+
+		$("#divers").on("click", ".diver-remove-icon", function(event){
+		event.preventDefault();
+		var id = $(this).data('dive-id');
+		var fish_id = $(this).data('diver-id');
+		var currentX = $(this);
+
+
+		$.ajax({
+			url: '/dives/'+id+'/fish/'+fish_id,
+    	type: 'POST',
+    	data: {"_method":"delete"},
+    	success: function(event){
+    		currentX.closest(".thumbnail").remove();
+    	}
+    });
+	});
+
+
+	.
 });

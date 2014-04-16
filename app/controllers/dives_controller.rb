@@ -15,6 +15,7 @@ class DivesController < ApplicationController
   def show
     @photo = @dive.photos.new
     @fish = Fish.new
+    @diver = Diver.new
   end
 
   def new
@@ -89,6 +90,14 @@ class DivesController < ApplicationController
     @dive = Dive.find(params[:id])
     @dive.divers << @diver if !@dive.divers.include?(@diver)
     render :json => @dive.divers
+  end
+
+  def removediver
+    @dive = Dive.find(params[:id])
+    @diver = Diver.find_by(:id => params[:diver_id])
+    @diverdive = DiverDive.find_by(:dive_id => @dive.id, :diver_id => @diver.id)
+    @diverdive.destroy
+    render :json => { :head => :ok }
   end
 
   def removefish
