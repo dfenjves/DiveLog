@@ -327,6 +327,7 @@ DEPENDENCIES
   jquery-ui-rails
   koala
   mini_magick
+  nokogiri
   omniauth-facebook
   pg
   polyamorous!
