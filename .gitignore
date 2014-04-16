@@ -21,4 +21,6 @@
 /public/uploads
 /coverage
 
+/divelog_development
+
 .DS_Store

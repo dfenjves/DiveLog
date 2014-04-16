@@ -20,7 +20,7 @@ $('.dives.show').ready(function(){
   });  
   //End autocomplete
 
-	$(".remove-icon").click(function(e){
+	$(".gallery").on("click", ".photo-remove", function(e){
 		e.preventDefault();
 		$.ajax({
   		url: "/photos/" + $(this).data('photo-id'),
