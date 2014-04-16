@@ -1,6 +1,6 @@
 <% @dive.fish.each do |fish| %>
   <div class="col-md-6">
-    <a href = "<%= fish.wiki_link %>">
+    <a href = "<%= fish.wiki_link %>" target="_blank">
 	    <div class="thumbnail fish-thumb">
 	    	<button class="btn fish-remove" data-fish-id=<%= fish.id %>, data-dive-id=<%= @dive.id %>>X</button>
 	      <%= image_tag "http://#{fish.picture_link}" %>
