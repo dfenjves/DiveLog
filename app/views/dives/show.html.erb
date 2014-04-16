@@ -54,10 +54,10 @@
             <div class="uploader">
               <%= form_for @photo, remote:true do |f| %>
                 <%= f.hidden_field :dive_id, :value => @dive.id %>
-                <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
+                <%= f.file_field :image, :multiple => true, name: "photo[image]", class = "btn btn-success fileinput-button" %>
               <% end %>
             </div>
-            <button class = "btn btn-success fileinput-button">Upload a Photo</button>
+            <button class = "btn btn-success fileinput-button upload-photo-button">Upload a Photo</button>
             <% end %>
           </div>
         </div>
