@@ -96,8 +96,12 @@ class DivesController < ApplicationController
     @dive = Dive.find(params[:id])
     @diver = Diver.find_by(:id => params[:diver_id])
     @diverdive = DiverDive.find_by(:dive_id => @dive.id, :diver_id => @diver.id)
-    @diverdive.destroy
-    render :json => { :head => :ok }
+    if @dive.diver_dives.first == @diverdive
+      render :json => { :errors => "This doesn't work"}
+    else
+      @diverdive.destroy
+      render :json => { :head => :ok }
+    end
   end
 
   def removefish

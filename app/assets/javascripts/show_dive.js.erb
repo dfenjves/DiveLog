@@ -8,6 +8,9 @@ $('.dives.show').ready(function(){
 
 	});
 
+	//remove delete button for dive owner
+	$('#divers').children().first().children('.diver-remove').remove()
+
 	//Hijacking Upload button
 	$(".fileinput-button").on("click", function(e){
 		e.preventDefault();
