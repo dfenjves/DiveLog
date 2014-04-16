@@ -74,7 +74,7 @@ $('#diver_search').submit(function(event){
     var id = $('#diver_search').data('id');
     var diver_name = $('#diver_name').val();
 
-    $.post('/dives/'+id+'/diver', {name: diver_name}, function(diver_dive){
+    $.post('/dives/'+id+'/divers', {name: diver_name}, function(diver_dive){
      $('#divers').empty();
       $.each(diver_dive, function(i, diver) {
 
@@ -110,20 +110,18 @@ $('#diver_search').submit(function(event){
 		$("#divers").on("click", ".diver-remove-icon", function(event){
 		event.preventDefault();
 		var id = $(this).data('dive-id');
-		var fish_id = $(this).data('diver-id');
+		var diver_id = $(this).data('diver-id');
 		var currentX = $(this);
 
 
 		$.ajax({
-			url: '/dives/'+id+'/fish/'+fish_id,
+			url: '/dives/'+id+'/divers/'+diver_id,
     	type: 'POST',
     	data: {"_method":"delete"},
     	success: function(event){
-    		currentX.closest(".thumbnail").remove();
+    		currentX.closest(".diver-thumb").remove();
     	}
     });
 	});
 
-
-	.
 });
