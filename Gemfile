@@ -30,6 +30,11 @@ gem 'koala'
 gem 'figaro', github: 'laserlemon/figaro'
 gem 'jquery-ui-rails'
 gem 'best_in_place', github: 'simtron/best_in_place'
+gem "bootstrap-sass", "~> 3.1.1"
+gem "carrierwave"
+gem "rmagick"
+gem "mini_magick"
+gem "jquery-fileupload-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -66,8 +71,4 @@ group :production do
   gem "rails_12factor"
 end
 
-gem "bootstrap-sass", "~> 3.1.1"
-gem "carrierwave"
-gem "rmagick"
-gem "mini_magick"
-gem "jquery-fileupload-rails"
+

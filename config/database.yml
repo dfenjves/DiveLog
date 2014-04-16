@@ -27,4 +27,4 @@ test:
 #   sqlite3://myuser:mypass@localhost/full/path/to/somedatabase
 #
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  url: postgres://mufxfdyisaasmi:kBpKbDTNA8DefXPcPUvzJysSB4@ec2-54-197-241-97.compute-1.amazonaws.com:5432/d5kvrlti1oqnss
