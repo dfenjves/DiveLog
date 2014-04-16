@@ -51,12 +51,10 @@
                     <%= f.file_field :image, :multiple => true, name: "photo[image]" %>
                   <% end %>
                 </div>
-                <button class = "btn btn-success fileinput-button">Upload a Photo</button>
-                <br/>
-                <br/>
+                <button class="btn btn-success fileinput-button">Upload a Photo</button>
               <% end %>
             </div>
-            <div class="row gallery">
+            <div class="row gallery dive-photos">
               <%= render 'dive_photos' %>     
             </div>
           </div>

@@ -8,6 +8,12 @@ $('.dives.show').ready(function(){
 
 	});
 
+	//Hijacking Upload button
+	$(".fileinput-button").on("click", function(e){
+		e.preventDefault();
+		$("#photo_image").trigger("click");
+	});
+
 	//Autocomlete:
   var availableTags_fish = <%= (Fish.all.collect { |fish| "#{fish.name}" }) %>;
   $( "#name" ).autocomplete({
