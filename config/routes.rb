@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   post '/dives/:id/diver' => 'dives#adddiver'
 
+  get '/divers' => 'divers#index'
   get '/divers/:id' => 'divers#show', as: 'diver'
 
   post '/photos' => 'photos#create'

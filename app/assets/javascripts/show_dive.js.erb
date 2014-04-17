@@ -14,12 +14,30 @@ $('.dives.show').ready(function(){
 		$("#photo_image").trigger("click");
 	});
 
+  var availableTags_divers = [];
+
+  function createSuccessHandlerDivers(data){
+    var keys = Object.keys(data);
+    keys.forEach(function(key){
+      availableTags_divers.push(data[key]);
+    });
+  }
+
+  $.ajax({
+    type: 'GET',
+    url: '/divers',
+    success: createSuccessHandlerDivers
+  });
+
+  // console.log($.get('/divers/index', 'json'));
+  // get script, respond to js in index of controllers
 	//Autocomlete:
+
+
   var availableTags_fish = <%= (Fish.all.collect { |fish| "#{fish.name}" }) %>;
   $( "#name" ).autocomplete({
     source: availableTags_fish
   });
-  var availableTags_divers = <%= (Diver.all.collect { |diver| "#{diver.name}" }) %>;
   $( "#diver_name" ).autocomplete({
     source: availableTags_divers
   });  

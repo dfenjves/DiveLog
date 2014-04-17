@@ -8,8 +8,6 @@ class DivesController < ApplicationController
     else
       redirect_to root_path, :flash => { :error => "You must be signed in to see this page" }
     end
-    # @q = Dive.search(params[:q])
-    # @dives = @q.result(distinct: true)
   end
 
   def show
