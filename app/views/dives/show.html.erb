@@ -1,18 +1,18 @@
-<% if authorized_diver(@dive) %>
+<% if authorized_diver?(@dive) %>
   <script id="template-upload" type="text/x-tmpl">
     <div class="upload">
     </div>
   </script>
 <% end %>
 
-<div class="panel panel-default dives show">
+<div class="panel panel-default dives show" data-included="<%= authorized_diver?(@dive) %>">
   <div class="panel-body">
     <h2 class="text-center">
-      A dive at <%= best_in_place_if authorized_diver(@dive), @dive, :dive_site, type: :input %>
+      A dive at <%= best_in_place_if authorized_diver?(@dive), @dive, :dive_site, type: :input %>
     </h2>
     <div class="row">
       <div class="col-md-4 text-center">
-        <% if authorized_diver(@dive) %>
+        <% if authorized_diver?(@dive) %>
           <%= form_tag "#", id: "diver_search", data:{id: @dive.id }, remote:true do %>
             <div class="ui-widget">
               <label for="diver_name">Add a Friend to this Dive: </label>
@@ -24,7 +24,7 @@
       </div>
       
       <div class="col-md-4 text-center">
-        <% if authorized_diver(@dive) %>
+        <% if authorized_diver?(@dive) %>
           <%= link_to "Delete Dive", dive_path(@dive), :method => :delete, class: 'btn btn-warning text-center' %>
         <% end %>
       </div>    
@@ -42,7 +42,7 @@
         <div class="row"> <!-- search fish and add photo buttons -->
           <div class="col-md-12">
             <div class="uploaderbutton">
-              <% if authorized_diver(@dive) %>
+              <% if authorized_diver?(@dive) %>
                 <div class="uploader">
                   <%= form_for @photo, remote:true do |f| %>
                     <%= f.hidden_field :dive_id, :value => @dive.id %>
@@ -64,7 +64,7 @@
       <div class="col-md-6">
         <h3 class="page-header text-center">Fish Seen</h3>
         <div class="col-md-12">
-          <% if authorized_diver(@dive) %>
+          <% if authorized_diver?(@dive) %>
             <%= form_tag "#", id: "fish_search", data:{id: @dive.id } do %>
               <div class="ui-widget">
                 <label for="name">Fish Name: </label>

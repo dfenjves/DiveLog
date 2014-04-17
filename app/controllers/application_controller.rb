@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :logged_in?
 
-  def authorized_diver(dive)
+  def authorized_diver?(dive)
     logged_in? && dive.divers.include?(current_diver)
   end
-  helper_method :authorized_diver
+  helper_method :authorized_diver?
 
 end

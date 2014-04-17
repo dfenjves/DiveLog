@@ -1,11 +1,11 @@
 <div class="col-md-4">
   <h3>
-    <%= best_in_place_if authorized_diver(@dive), @dive, :date, type: :date, display_as: :display_date %>
+    <%= best_in_place_if authorized_diver?(@dive), @dive, :date, type: :date, display_as: :display_date %>
   </h3>
   <h4 class="times">
-    Time In: <%= best_in_place_if authorized_diver(@dive), @dive, :time_in, display_as: :display_time_in %>
+    Time In: <%= best_in_place_if authorized_diver?(@dive), @dive, :time_in, display_as: :display_time_in %>
     <br/> 
-    Time Out: <%= best_in_place_if authorized_diver(@dive), @dive, :time_out, display_as: :display_time_out %>
+    Time Out: <%= best_in_place_if authorized_diver?(@dive), @dive, :time_out, display_as: :display_time_out %>
     <br/>
   </h4>
 
@@ -24,32 +24,32 @@
 
 <div class="col-md-4 change-units">
   <p>
-    Dive Type: <%= best_in_place_if authorized_diver(@dive), @dive, :dive_type, type: :select, collection: [["", "—"], ["boat", "Boat Dive"], ["beach", "Beach Dive"], ["drift", "Drift Dive"], ["night", "Night Dive"]] %>
+    Dive Type: <%= best_in_place_if authorized_diver?(@dive), @dive, :dive_type, type: :select, collection: [["", "—"], ["boat", "Boat Dive"], ["beach", "Beach Dive"], ["drift", "Drift Dive"], ["night", "Night Dive"]] %>
     <br/>   
-    Dive Activity: <%= best_in_place_if authorized_diver(@dive), @dive, :dive_activity, type: :select, collection: [["", "—"], ["wreck", "Wreck Dive"], ["reef", "Reef Dive"], ["cave", "Cave Dive"], ["training", "Training Dive"]] %>
+    Dive Activity: <%= best_in_place_if authorized_diver?(@dive), @dive, :dive_activity, type: :select, collection: [["", "—"], ["wreck", "Wreck Dive"], ["reef", "Reef Dive"], ["cave", "Cave Dive"], ["training", "Training Dive"]] %>
     <br/>        
-    Maximum Depth: <%= best_in_place_if authorized_diver(@dive), @dive, :depth, type: :input %>
+    Maximum Depth: <%= best_in_place_if authorized_diver?(@dive), @dive, :depth, type: :input %>
     <%= content_tag :span, " meters", class: 'depth' %>
     <br/>
-    Water Temperature: <%= best_in_place_if authorized_diver(@dive), @dive, :temperature, type: :input %>
+    Water Temperature: <%= best_in_place_if authorized_diver?(@dive), @dive, :temperature, type: :input %>
     <%= content_tag :span, " °C", class: 'temperature' %>
     <br/>
-    Visibility: <%= best_in_place_if authorized_diver(@dive), @dive, :visibility, type: :input %>
+    Visibility: <%= best_in_place_if authorized_diver?(@dive), @dive, :visibility, type: :input %>
     <%= content_tag :span, " meters", class: 'visibility' %>
     <br/>
-    Conditions: <%= best_in_place_if authorized_diver(@dive), @dive, :conditions, type: :input %>
+    Conditions: <%= best_in_place_if authorized_diver?(@dive), @dive, :conditions, type: :input %>
     <br/>                         
-    Starting Air: <%= best_in_place_if authorized_diver(@dive), @dive, :start_air, type: :input %>
+    Starting Air: <%= best_in_place_if authorized_diver?(@dive), @dive, :start_air, type: :input %>
     <%= content_tag :span, " bar", class: 'start_air' %>
     <br/>
-    Ending Air: <%= best_in_place_if authorized_diver(@dive), @dive, :end_air, type: :input %>
+    Ending Air: <%= best_in_place_if authorized_diver?(@dive), @dive, :end_air, type: :input %>
     <%= content_tag :span, " bar", class: 'end_air' %>
     <br/>
-    Wetsuit? <%= best_in_place_if authorized_diver(@dive), @dive, :wetsuit, type: :checkbox, collection: %w[No Yes] %>
+    Wetsuit? <%= best_in_place_if authorized_diver?(@dive), @dive, :wetsuit, type: :checkbox, collection: %w[No Yes] %>
   </p>
 </div>
 <div class="col-md-4 change-units">
   <p>
-    Notes: <%= best_in_place_if authorized_diver(@dive), @dive, :notes, type: :textarea %>
+    Notes: <%= best_in_place_if authorized_diver?(@dive), @dive, :notes, type: :textarea %>
   </p>
 </div>
