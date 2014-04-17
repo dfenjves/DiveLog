@@ -71,7 +71,7 @@ button .fileinput-button {
 .diver-remove {
 	display: inline-block;
 	visibility: hidden;
-	position:absolute;
+	/*position:absolute;*/
 	left:60px;
 	bottom:-5px;
 }

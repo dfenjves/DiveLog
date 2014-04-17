@@ -92,9 +92,12 @@ $('[value="Add Diver"]').click(function(event){
     $.post('/dives/'+id+'/divers', {name: diver_name}, function(diver){
       console.log(diver.id);
 
-      var this_diver =  '<a href="/divers/'+diver.id+'">'+
+      var this_diver =  '<span class="diver-thumb"><a href="/divers/'+diver.id+'">'+
                       '<img class="img-circle" src="'+diver.image+'">'+
-                    '</a>';
+                    '</a>' + "<span class='diver-remove'><span class='glyphicon glyphicon-remove diver-remove-icon' data-dive-id='" + 
+                    id + "' data-diver-id='" + diver.id + "'></span></span></span>";
+
+
 
       $('#divers').append(this_diver);
 

@@ -14,9 +14,9 @@
         <span class="diver-thumb">
           <% @diver = Diver.find(d.diver_id) %>
           <%= link_to((image_tag @diver.image, class:"img-circle"), @diver) %>
-          <div class="diver-remove">
+          <span class="diver-remove">
             <span class="glyphicon glyphicon-remove diver-remove-icon" data-dive-id=<%= @dive.id %> data-diver-id=<%= @diver.id %>></span>
-          </div>
+          </span>
         </span>
     <% end %>
   </div>
