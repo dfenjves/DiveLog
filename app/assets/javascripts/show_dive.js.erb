@@ -83,26 +83,22 @@ $('.dives.show').ready(function(){
 
 	});
 
-$('#diver_search').submit(function(event){
+$('[value="Add Diver"]').click(function(event){
 
     event.preventDefault(); //prevent form submit
 
-    var id = $('#diver_search').data('id');
-    var diver_name = $('#diver_name').val();
+    var id = $('#diver_search').data('id'); // Dive id
+    var diver_name = $('#diver_name').val(); // Diver's name to add
+    $.post('/dives/'+id+'/divers', {name: diver_name}, function(diver){
+      console.log(diver.id);
 
-    $.post('/dives/'+id+'/divers', {name: diver_name}, function(diver_dive){
-     $('#divers').empty();
-      $.each(diver_dive, function(i, diver) {
+      var this_diver =  '<a href="/divers/'+diver.id+'">'+
+                      '<img class="img-circle" src="'+diver.image+'">'+
+                    '</a>';
 
-        var this_diver =  '<a href="/divers/'+diver.id+'">'+
-                        '<img src="'+diver.image+'">'+
-                      '</a>';
-
-        $('#divers').append(this_diver);
-      });
+      $('#divers').append(this_diver);
 
     });
-
   });  
 
 
@@ -123,7 +119,7 @@ $('#diver_search').submit(function(event){
     });
 	});
 
-		$("#divers").on("click", ".diver-remove-icon", function(event){
+	$("#divers").on("click", ".diver-remove-icon", function(event){
 		event.preventDefault();
 		var id = $(this).data('dive-id');
 		var diver_id = $(this).data('diver-id');
@@ -138,6 +134,7 @@ $('#diver_search').submit(function(event){
     		currentX.closest(".diver-thumb").remove();
     	}
     });
+
 	});
 
 });

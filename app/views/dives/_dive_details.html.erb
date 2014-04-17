@@ -10,13 +10,14 @@
   </h4>
 
   <div id="divers">
-    <% @dive.divers.each do |d| %>
-        <div class="diver-thumb">
-          <%= link_to((image_tag d.image, class:"img-circle"), d) %>
+    <% @dive.diver_dives.order(:id).each do |d| %>
+        <span class="diver-thumb">
+          <% @diver = Diver.find(d.diver_id) %>
+          <%= link_to((image_tag @diver.image, class:"img-circle"), @diver) %>
           <div class="diver-remove">
-            <span class="glyphicon glyphicon-remove diver-remove-icon" data-dive-id=<%= @dive.id %> data-diver-id=<%= d.id %>></span>
+            <span class="glyphicon glyphicon-remove diver-remove-icon" data-dive-id=<%= @dive.id %> data-diver-id=<%= @diver.id %>></span>
           </div>
-        </div>
+        </span>
     <% end %>
   </div>
 </div>

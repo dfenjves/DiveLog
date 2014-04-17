@@ -87,7 +87,7 @@ class DivesController < ApplicationController
     @diver = Diver.find_by(name: params[:name])
     @dive = Dive.find(params[:id])
     @dive.divers << @diver if !@dive.divers.include?(@diver)
-    render :json => @dive.divers
+    render :json => @diver
   end
 
   def removediver
