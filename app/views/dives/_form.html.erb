@@ -1,12 +1,19 @@
 <%= form_for @dive, :html => {:multipart => true} do |f| %>
-	<div class="row text-center">
-		<p>
+	<div class="row text-center page-header">
+		<div class="col-sm-6">
+			<h3>
+			<%= f.label :dive_site, "Site:" %>
+			<%= f.text_field :dive_site, required: true, :id => "dive-site" %>
+			</h3>
+		</div>
+		<div class="col-sm-6">
+			<h3>
 			<%= f.label :date, "Date:" %>
 			<%= f.date_field :date, required: true %>
-
-			<%= f.label :dive_site, "Dive Site:" %>
-			<%= f.text_field :dive_site, required: true %>
-		</p><br>
+			</h3>
+		</div>
+		<br>
+		<hr>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
