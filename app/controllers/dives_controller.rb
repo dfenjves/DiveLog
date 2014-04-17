@@ -55,14 +55,29 @@ class DivesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @dive.update_attributes(dive_params)
+      if !( !real_time?(dive_params) || @dive.update(dive_params))
         format.html { redirect_to(@dive, :notice => 'Dive was successfully updated.') }
         format.json { respond_with_bip(@dive) }
       else
-        format.html { render :action => "edit", :error => 'Something went wrong.' }
-        format.json { respond_with_bip(@dive) }
+        format.html { head :ok, :error => 'Something went wrong.' }
+        format.json { head :ok }
       end
     end    
+  end
+
+  def real_time?(update_params)
+    begin
+      if update_params["time_in"]
+        Time.parse(update_params["time_in"])
+      end
+
+      if update_params["time_out"]
+        Time.parse(update_params["time_out"])
+      end         
+    rescue
+      return false
+    end
+    return true
   end
 
   def destroy

@@ -49,10 +49,8 @@ jQuery(document).ready(function($) {
   });
 
   $(".times").on('select', function(e) {
-    $("input").val(function(index, value) {
-      return value.replace($("input").val(),'');
-    });
-    $("input").attr('placeholder', 'Please enter a time');
+    $(".times input").val('');
+    $(".times input").attr('placeholder', 'Please enter a time');
   });
 
   // $(".times").on('change', function(e) {
