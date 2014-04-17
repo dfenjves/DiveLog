@@ -29,11 +29,6 @@ $('.dives.show').ready(function(){
     success: createSuccessHandlerDivers
   });
 
-  // console.log($.get('/divers/index', 'json'));
-  // get script, respond to js in index of controllers
-	//Autocomlete:
-
-
   var availableTags_fish = <%= (Fish.all.collect { |fish| "#{fish.name}" }) %>;
   $( "#name" ).autocomplete({
     source: availableTags_fish
