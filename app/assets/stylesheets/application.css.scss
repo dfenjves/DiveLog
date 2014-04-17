@@ -30,12 +30,16 @@ body {
 
 
 h1 {
-  font-family: 'Londrina Outline', cursive;
+  font-family: 'Londrina Solid', cursive;
   font-size: 70px;
 }
 
+.intro-text h1 {
+  text-shadow: 4px 4px black; 
+}
+
 .navbar-brand {
-  font-family: 'Londrina Outline', cursive;
+  font-family: 'Londrina Solid', cursive;
   font-size: 2em;
 }
 

@@ -16,7 +16,7 @@
 			</thead>
 			<tbody>
 				<% @dives.order(date: :desc).each do |dive| %>
-					<tr class='clickableRow' href='<%= dive_path(dive) %>'>
+					<tr class='clickableRow dive-row' href='<%= dive_path(dive) %>'>
 						<td><%= dive.id %></td>
 						<td><%= dive.dive_site %></td>
 						<td><%= dive.date %></td>

@@ -80,3 +80,7 @@ button .fileinput-button {
 .diver-thumb:hover .diver-remove {
 	visibility: visible;
 }
+
+.dive-row:hover {
+	cursor: pointer;
+}
