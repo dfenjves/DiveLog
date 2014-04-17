@@ -31,7 +31,7 @@ gem 'figaro', github: 'laserlemon/figaro'
 gem 'jquery-ui-rails'
 gem 'best_in_place', github: 'simtron/best_in_place'
 gem "bootstrap-sass", "~> 3.1.1"
-gem "carrierwave"
+gem "carrierwave-aws"
 gem "rmagick"
 gem "mini_magick"
 gem "jquery-fileupload-rails"

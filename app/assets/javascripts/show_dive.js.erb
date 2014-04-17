@@ -45,9 +45,9 @@ $('.dives.show').ready(function(){
 		e.preventDefault();
 		$.ajax({
   		url: "/photos/" + $(this).data('photo-id'),
-  		type: "post",
-  		dataType: "json",
-  		data: {"_method":"delete"}
+  		type: "delete",
+  		dataType: "json"
+  		// data: {"_method":"delete"}
 		});
 		$(this).closest("div").remove();
 

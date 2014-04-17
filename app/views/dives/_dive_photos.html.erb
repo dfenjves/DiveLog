@@ -1,5 +1,5 @@
 <% @dive.photos.each do |photo| %>
-  <div class="col-md-6 thumb">
+  <div class="col-md-6 thumb photo-thumb">
     <a class="fancybox" rel="group" href="<%= photo.image_url %>">
       <button class="btn photo-remove" data-photo-id="<%= photo.id %>">X</button>
       <img class="image-thumb thumbnail" src="<%= photo.image_url(:thumb) %>"  alt="" />
