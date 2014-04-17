@@ -1,6 +1,12 @@
 require 'nokogiri'
 require 'open-uri'
 
+Diver.find(1).dives << Dive.new(:dive_site => "Angel City", :date => "2014-04-05", :time_in => "2014-04-05 14:30:00", :time_out => "2014-04-05 15:30:00", :temperature => 12 , :depth => 23, :visibility => 20, :start_air => 200, :end_air => 40, :conditions => "calm")
+Diver.find(1).dives << Dive.new(:dive_site => "Cayo Sombrero", :date => "2014-04-13", :time_in => "2014-04-13 12:00:00", :time_out => "2014-04-13 13:00:00", :temperature => 13, :depth => 18, :visibility => 5, :start_air => 195, :end_air => 50, :conditions => "choppy")
+Diver.find(1).dives << Dive.new(:dive_site => "Bel Mar", :date => "2014-03-05", :time_in => "2014-03-05 11:45:00", :time_out => "2014-03-05 12:45:00", :temperature => 11, :depth => 24, :visibility => 20, :start_air => 180, :end_air => 50, :conditions => "strong current")
+Diver.find(1).dives << Dive.new(:dive_site => "Key West", :date => "2014-01-02", :time_in => "2014-01-02 17:30:00", :time_out => "2014-01-02 18:20:00", :temperature => 15, :depth => 15, :visibility => 14, :start_air => 210, :end_air => 60, :conditions => "calm")
+
+
 def scrape
 
   fish_list = Nokogiri::HTML(open('http://en.wikipedia.org/wiki/List_of_common_fish_names'))
