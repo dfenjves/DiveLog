@@ -21,10 +21,22 @@
  //= depend_on_asset "red_pen.png"
  */
 @import "bootstrap";
+
 /* Some Style from the Bootstrap Default Theme */
 body {
   padding-top: 70px;
   padding-bottom: 30px;
+}
+
+
+h1 {
+  font-family: 'Londrina Outline', cursive;
+  font-size: 70px;
+}
+
+.navbar-brand {
+  font-family: 'Londrina Outline', cursive;
+  font-size: 2em;
 }
 
 .theme-dropdown .dropdown-menu {

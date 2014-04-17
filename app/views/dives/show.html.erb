@@ -5,11 +5,14 @@
   </script>
 <% end %>
 
-<div class="panel panel-default dives show" data-included="<%= authorized_diver?(@dive) %>">
+<div class="panel panel-default dives show">
   <div class="panel-body">
-    <h2 class="text-center">
-      A dive at <%= best_in_place_if authorized_diver?(@dive), @dive, :dive_site, type: :input %>
-    </h2>
+    <div class="row text-center">
+      <h1 class="text-center">
+        <%= best_in_place_if authorized_diver?(@dive), @dive, :dive_site, type: :input %>
+      </h1>
+    </div>
+    
     <div class="row">
       <div class="col-md-4 text-center">
         <% if authorized_diver?(@dive) %>

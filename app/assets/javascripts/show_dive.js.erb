@@ -1,16 +1,14 @@
-$('.dives.show').ready(function(){
+$(document).ready(function(){
 	$(".fancybox").fancybox();
 	
 	$(".thumb:last").hide();
 
 	$(".uploader").bind("fileuploaddone", function (e, data) {
     $(".fancybox").fancybox();    
-
 	});
 
 	//remove delete button for dive owner
 	$('#divers').children().first().children('.diver-remove').remove()
-
 
 	//Hijacking Upload button
 	$(".fileinput-button").on("click", function(e){
@@ -46,9 +44,9 @@ $('.dives.show').ready(function(){
 		e.preventDefault();
 		$.ajax({
   		url: "/photos/" + $(this).data('photo-id'),
-  		type: "delete",
-  		dataType: "json"
-  		// data: {"_method":"delete"}
+  		type: "post",
+  		dataType: "json",
+  		data: {"_method":"delete"}
 		});
 		$(this).closest("div").remove();
 
@@ -91,6 +89,7 @@ $('[value="Add Diver"]').click(function(event){
     var id = $('#diver_search').data('id'); // Dive id
     var diver_name = $('#diver_name').val(); // Diver's name to add
     $.post('/dives/'+id+'/divers', {name: diver_name}, function(diver){
+      console.log(diver.id);
 
       var this_diver =  '<span class="diver-thumb"><a href="/divers/'+diver.id+'">'+
                       '<img class="img-circle" src="'+diver.image+'">'+
@@ -139,12 +138,5 @@ $('[value="Add Diver"]').click(function(event){
     });
 
 	});
-
-  // Hide all X's if user not part of the dive
-  if ( $("div.dives").length > 0 ){
-    if ( $("div.dives").data('included') == false ){
-      $(".diver-remove").hide();
-    }
-  }
 
 });
