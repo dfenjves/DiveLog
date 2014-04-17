@@ -18,6 +18,7 @@ class DivesController < ApplicationController
 
   def new
     if logged_in?
+      @photo = Photo.new
       @dive = Dive.new
     else
       redirect_to root_path, :flash => { :error => "Please sign in to log a dive" }
