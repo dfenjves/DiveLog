@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/dives/:id/divers' => 'dives#adddiver'
   delete '/dives/:id/divers/:diver_id' => 'dives#removediver'
 
+  get '/divers' => 'divers#index'
   get '/divers/:id' => 'divers#show', as: 'diver'
 
   post '/photos' => 'photos#create'
