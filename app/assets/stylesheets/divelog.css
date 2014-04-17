@@ -51,6 +51,11 @@ button .fileinput-button {
 	height: 230px;
 }
 
+.photo-thumb {
+	width: 220px;
+	height: 175px;
+}
+
 .fish-remove {
 	visibility: hidden;
 	position:absolute;
@@ -62,10 +67,6 @@ button .fileinput-button {
 
 .fish-thumb:hover .fish-remove{
 	visibility: visible;
-}
-
-.diver-thumb {
-
 }
 
 .diver-remove {
