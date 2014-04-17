@@ -16,7 +16,7 @@
 		<hr>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<p>
 				<%= f.label :depth, "Maximum Depth:" %>
 				<%= f.number_field :depth%> meters
@@ -36,7 +36,7 @@
 				<%= f.number_field :visibility%> meters
 			</p>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<p>
 				<%= f.label :start_air, "Start Air:" %>
 				<%= f.number_field :start_air%> bar
@@ -66,12 +66,13 @@
 				<%= f.text_field :conditions%>
 			</p>
 		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<%= f.text_area :notes, :placeholder => "Notes", :size => "50x10" %>		  	
 		</div>
+	</div>
+	
+
+	<div class="row">
 		<div class="col-md-6">
 			<% @dive.photos.each do |photo| %>
         <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url %>
@@ -85,7 +86,7 @@
 		
 	<div class="row">
   	<div class="span6" style="text-align:center">
-   	 <%= f.submit "Submit Dive!" %>
+   	 <%= f.submit "Submit Dive!", class:"btn btn-primary" %>
   	</div>
 	</div>
 <% end %>
