@@ -1,5 +1,5 @@
 <%= form_for @dive, :html => {:multipart => true} do |f| %>
-	<div class="row text-center page-header">
+	<div class="row text-center">
 		<div class="col-sm-6">
 			<h3>
 			<%= f.label :dive_site, "Site:" %>
@@ -13,8 +13,8 @@
 			</h3>
 		</div>
 		<br>
-		<hr>
 	</div>
+	<hr>
 	<div class="row">
 		<div class="col-md-4">
 			<p>
@@ -34,6 +34,12 @@
 			<p>
 				<%= f.label :visibility, "Visibility:" %>
 				<%= f.number_field :visibility%> meters
+			</p>
+			<p>
+				<%= f.fields_for :photo do |p| %>
+				<%= f.label :image, "Add Photos:" %>
+				<%= p.file_field :image, :multiple => true, name: "photos[image][]" %>
+			<% end %>
 			</p>
 		</div>
 		<div class="col-md-4">
@@ -67,20 +73,17 @@
 			</p>
 		</div>
 		<div class="col-md-4">
-			<%= f.text_area :notes, :placeholder => "Notes", :size => "50x10" %>		  	
+			<%= f.text_area :notes, :placeholder => "Notes", :id => "dive-notes"%>		  	
 		</div>
 	</div>
 	
+   <div class="row gallery dive-photos">
+    <%= render 'dive_photos' %>     
+  </div>
 
 	<div class="row">
 		<div class="col-md-6">
-			<% @dive.photos.each do |photo| %>
-        <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url %>
-      <% end %>
-
-			<%= f.fields_for :photo do |p| %>
-				<%= p.file_field :image, :multiple => true, name: "photos[image][]" %>
-			<% end %>
+			
 		</div>
 	</div>
 		
