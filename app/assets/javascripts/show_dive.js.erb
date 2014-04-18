@@ -7,6 +7,10 @@ $(document).ready(function(){
     $(".fancybox").fancybox();    
 	});
 
+  if($("div.dives.show").data("member") == false){
+    $(".glyphicon-remove").hide();
+  }
+
 	//remove delete button for dive owner
 	$('#divers').children().first().children('.diver-remove').remove()
 
