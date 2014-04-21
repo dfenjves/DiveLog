@@ -39,7 +39,8 @@ $(document).ready(function(){
     source: availableTags_divers
   });  
   //End autocomplete
-
+  
+  //removing a photo
 	$(".gallery").on("click", ".photo-remove", function(e){
 		e.preventDefault();
 		$.ajax({
@@ -52,6 +53,7 @@ $(document).ready(function(){
 
 	});
 
+//adding a fish
 	$('#fish_search').submit(function(event){
 
 		event.preventDefault(); //prevent form submit
@@ -82,6 +84,7 @@ $(document).ready(function(){
 
 	});
 
+//Adding a diver
 $('[value="Add Diver"]').click(function(event){
 
     event.preventDefault(); //prevent form submit
@@ -103,7 +106,7 @@ $('[value="Add Diver"]').click(function(event){
     });
   });  
 
-
+//Removing a fish
 	$("#fish").on("click", ".fish-remove", function(event){
 		event.preventDefault();
 		var id = $(this).data('dive-id');
@@ -120,6 +123,9 @@ $('[value="Add Diver"]').click(function(event){
     	}
     });
 	});
+//end removing a fish
+
+//Removing a diver
 
 	$("#divers").on("click", ".diver-remove-icon", function(event){
 		event.preventDefault();
