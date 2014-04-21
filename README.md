@@ -6,9 +6,9 @@ A digital dive log to replace the soggy booklet that SCUBA divers travel with.
 
 ## Screenshots
 
-->{% img /public/newdive.png 600 %}<-
+![New Dive](/public/newdive.png)
 
-->{% img /public/fishseen.png 600 %}<-
+!(/public/fishseen.png)
 
 ->{% img /public/homepage.png 600 %}<-
 
