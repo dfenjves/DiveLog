@@ -45,4 +45,4 @@ Daniel Fenjves [dfenjves.github.io](http://dfenjves.github.io)
 
 ## License
 
-My Spiffy App is MIT Licensed. See LICENSE for details.
+Divelog is MIT Licensed. See LICENSE for details.
