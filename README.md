@@ -6,7 +6,11 @@ A digital dive log to replace the soggy booklet that SCUBA divers travel with.
 
 ## Screenshots
 
-Add some spiffy screenshots of your app here.
+->{% img /public/newdive.png 600 %}<-
+
+->{% img /public/fishseen.png 600 %}<-
+
+->{% img /public/homepage.png 600 %}<-
 
 ## Background
 
@@ -33,7 +37,8 @@ Here are some ways we'd love to see you contribute, via pull requests:
 
 ## Authors
 
-Chris Guthrie www.caguthrie.com
+Chris Guthrie www.caguthrie.com \n
+
 Daniel Fenjves dfenjves.github.io
 
 ## License
