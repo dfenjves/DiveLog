@@ -28,7 +28,7 @@
     <div id="recentdives">
       <ul id="recentdives-list">
         <% Dive.order(id: :desc).limit(10).each do |dive| %>
-          <li><%= link_to dive.divers.first.name, dive.divers.first %> dived 
+          <li><%= link_to dive.diver_dives.first.diver.name, dive.diver_dives.first.diver %> dived 
             <%= link_to dive.dive_site, dive %> on <%= dive.display_date %></li>
         <% end %>
       </ul>
