@@ -58,7 +58,7 @@ h1 {
 }
 
 .bg {
-  background-image: image-url('turtle.jpg');
+  background: url('turtle.jpg') no-repeat center center fixed; 
   background-size: cover;
 }
 
