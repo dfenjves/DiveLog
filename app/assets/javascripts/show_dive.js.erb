@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$(".fancybox").fancybox();
 	
-	$(".thumb:last").hide();
+	$(".thumb:last").remove();
 
 	$(".uploader").bind("fileuploaddone", function (e, data) {
     $(".fancybox").fancybox();    
