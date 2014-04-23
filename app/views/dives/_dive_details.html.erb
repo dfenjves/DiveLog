@@ -27,23 +27,33 @@
     Dive Type: <%= best_in_place_if authorized_diver?(@dive), @dive, :dive_type, type: :select, collection: [["", "—"], ["boat", "Boat Dive"], ["beach", "Beach Dive"], ["drift", "Drift Dive"], ["night", "Night Dive"]] %>
     <br/>   
     Dive Activity: <%= best_in_place_if authorized_diver?(@dive), @dive, :dive_activity, type: :select, collection: [["", "—"], ["wreck", "Wreck Dive"], ["reef", "Reef Dive"], ["cave", "Cave Dive"], ["training", "Training Dive"]] %>
-    <br/>        
-    Maximum Depth: <%= best_in_place_if authorized_diver?(@dive), @dive, :depth, type: :input %>
-    <%= content_tag :span, " meters", class: 'depth' %>
     <br/>
-    Water Temperature: <%= best_in_place_if authorized_diver?(@dive), @dive, :temperature, type: :input %>
-    <%= content_tag :span, " °C", class: 'temperature' %>
+    <span class="depth-contents">       
+      Maximum Depth: <%= best_in_place_if authorized_diver?(@dive), @dive, :depth, type: :input %>
+      <%= content_tag :span, " meters", class: 'depth' %>
+    </span>
     <br/>
-    Visibility: <%= best_in_place_if authorized_diver?(@dive), @dive, :visibility, type: :input %>
-    <%= content_tag :span, " meters", class: 'visibility' %>
+    <span class="temperature-contents">  
+      Water Temperature: <%= best_in_place_if authorized_diver?(@dive), @dive, :temperature, type: :input %>
+      <%= content_tag :span, " °C", class: 'temperature' %>
+    </span>
+    <br/>
+    <span class="visibility-contents">  
+      Visibility: <%= best_in_place_if authorized_diver?(@dive), @dive, :visibility, type: :input %>
+      <%= content_tag :span, " meters", class: 'visibility' %>
+    </span>
     <br/>
     Conditions: <%= best_in_place_if authorized_diver?(@dive), @dive, :conditions, type: :input %>
-    <br/>                         
-    Starting Air: <%= best_in_place_if authorized_diver?(@dive), @dive, :start_air, type: :input %>
-    <%= content_tag :span, " bar", class: 'start_air' %>
+    <br/>                
+    <span class="start_air-contents">  
+      Starting Air: <%= best_in_place_if authorized_diver?(@dive), @dive, :start_air, type: :input %>
+      <%= content_tag :span, " bar", class: 'start_air' %>
+    </span>
     <br/>
-    Ending Air: <%= best_in_place_if authorized_diver?(@dive), @dive, :end_air, type: :input %>
-    <%= content_tag :span, " bar", class: 'end_air' %>
+    <span class="end_air-contents">  
+      Ending Air: <%= best_in_place_if authorized_diver?(@dive), @dive, :end_air, type: :input %>
+      <%= content_tag :span, " bar", class: 'end_air' %>
+    </span>
     <br/>
     Wetsuit? <%= best_in_place_if authorized_diver?(@dive), @dive, :wetsuit, type: :checkbox, collection: %w[No Yes] %>
   </p>

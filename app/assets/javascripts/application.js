@@ -25,10 +25,11 @@ ATTRIBUTES_IN_UNITS = ["visibility", "start_air", "end_air", "temperature", "dep
 
 var changeUnits = function(){
   for( var i=0; i < ATTRIBUTES_IN_UNITS.length; i++ ) {
-    if ($("span[data-attribute='" + ATTRIBUTES_IN_UNITS[i] + "']").text() == "" || $("span[data-attribute='" + ATTRIBUTES_IN_UNITS[i] + "']").text() == "—" ) {
+    if (($("span[data-attribute='" + ATTRIBUTES_IN_UNITS[i] + "']").text() == "" || $("span[data-attribute='" + ATTRIBUTES_IN_UNITS[i] + "']").text() == "—" )) {
       $("." + ATTRIBUTES_IN_UNITS[i]).hide();
     }
-    else {
+    if( /\d/.test($("."+ATTRIBUTES_IN_UNITS[i]+"-contents").text()) ){
+      console.log(/\d/.test($("."+ATTRIBUTES_IN_UNITS[i]+"-contents").text()));
       $("." + ATTRIBUTES_IN_UNITS[i]).show();
     }
   }
